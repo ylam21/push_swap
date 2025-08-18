@@ -9,17 +9,18 @@ CFLAGS := -Wall -Wextra -Werror
 RM := rm -rf
 
 # Directories
-SOURCE_DIR = ./
-OBJECT_DIR = objects
+SOURCE_DIR = src
+OBJECT_DIR = obj
 
-# File names
-SOURCE_FILES = main.c
+# Source files
+SOURCE_FILES =	$(SOURCE_DIR)/main.c \
+				$(SOURCE_DIR)/lst_utils.c \
+				$(SOURCE_DIR)/parser.c
 
-# Sources
-SOURCES = $(addprefix $(SOURCE_DIR)/, $(SOURCE_FILES))
-
-# Objects
-OBJECT_FILES = $(patsubst $(SOURCE_DIR)/%.c, $(OBJECT_DIR)/%.o, $(SOURCES))
+# Object files
+OBJECT_FILES =	$(OBJECT_DIR)/main.o \
+				$(OBJECT_DIR)/lst_utils.o \
+				$(OBJECT_DIR)/parser.o
 
 all: $(NAME)
 
@@ -27,7 +28,7 @@ $(NAME): $(OBJECT_FILES)
 	$(CC) $(CFLAGS) $(OBJECT_FILES) -o $(NAME)
 
 # Create object files
-$(OBJECT_DIR)/%.o: $(SOURCE_DIR)/%.c
+$(OBJECT_DIR)/%.o: $(SOURCE_DIR)/%.c | $(OBJECT_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJECT_DIR):
