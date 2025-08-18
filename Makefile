@@ -9,18 +9,18 @@ CFLAGS := -Wall -Wextra -Werror
 RM := rm -rf
 
 # Directories
-SOURCE_DIR = src
+SOURCE_DIR = ./
 OBJECT_DIR = obj
 
 # Source files
-SOURCE_FILES =	$(SOURCE_DIR)/main.c \
-				$(SOURCE_DIR)/lst_utils.c \
-				$(SOURCE_DIR)/parser.c
+SOURCE_FILES =	$(SOURCE_DIR)/push_swap.c \
+				$(SOURCE_DIR)/validate_args.c \
+				$(SOURCE_DIR)/parse.c
 
 # Object files
-OBJECT_FILES =	$(OBJECT_DIR)/main.o \
-				$(OBJECT_DIR)/lst_utils.o \
-				$(OBJECT_DIR)/parser.o
+OBJECT_FILES =	$(OBJECT_DIR)/push_swap.o \
+				$(OBJECT_DIR)/validate_args.o \
+				$(OBJECT_DIR)/parse.o
 
 all: $(NAME)
 
