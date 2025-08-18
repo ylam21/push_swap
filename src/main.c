@@ -1,4 +1,5 @@
-#include "push_swap.h"
+#include "include/parser.h"
+#include "include/push_swap.h"
 
 int ft_atoi(const char *s);
 int is_zero(const char *s);
