@@ -1,3 +1,51 @@
+#include "../includes/parse.h"
+
+int ft_lstsize(t_list *lst)
+{
+	int size = 0;
+	if (!lst)
+		return size;
+	while (lst)
+	{
+		size++;
+		lst = lst->next;
+	}
+	return size;
+}
+
+t_list *ft_lstnew(int d)
+{
+	t_list *lst = malloc(sizeof(t_list));
+	if (!lst)
+		return NULL;
+	lst->d = d;
+	lst->next = NULL;
+	return lst;
+}
+
+t_list *ft_lstlast(t_list *lst)
+{
+	if (!lst)
+		return NULL;
+	while (lst->next)
+		lst = lst->next;
+	return lst;
+}
+
+void ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list *last;
+	if (!lst || !*lst)
+		return;
+	if (!*lst)
+	{
+		*lst = new;
+		return;
+	}
+
+	last = ft_lstlast(*lst);
+	last->next = new;
+}
 int is_digit(int c)
 {
 	if ('0' <= c && c <= '9')
@@ -22,13 +70,14 @@ int ft_atoi(const char *s)
 	if (!s)
 		return 0;
 	unsigned int i = 0;
-	unsigned int sign = 0;
+	unsigned int minus = 0;
 	int ret = 0;
 	while (is_whitespace(s[i]) == 1)
 		i++;
 	if (is_sign(s[i]) == 1)
 	{
-		sign = s[i] == '-' ? 1 : 0;
+		if (s[i] == '-')
+			minus = 1;
 		i++;
 	}
 	while (s[i] != '\0')
@@ -39,7 +88,7 @@ int ft_atoi(const char *s)
 		ret = ret + s[i] - '0';
 		i++;
 	}
-	if (sign)
+	if (minus)
 		return -ret;
 	return ret;
 }
@@ -53,37 +102,7 @@ int is_zero(const char *s)
 		i++;
 	if (is_sign(s[i]) == 1)
 		i++;
-	if (s[i] == '0' && s[i+1] == '\0')
+	if (s[i] == '0' && s[i + 1] == '\0')
 		return 1;
-	return 0;
-}
-
-int validate_args(int argc, char **argv)
-{
-	if (argc < 2)
-	{
-		return 1;
-	}
-	int i = 1;
-	while (i < argc)
-	{
-		if (is_zero(argv[i]) == 0)
-		{
-			if (ft_atoi(argv[i]) == 0)
-			{
-				return 2;
-			}
-		}
-		int j = i + 1;
-		while (j < argc)
-		{
-			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
-			{
-				return 3;
-			}
-			j++;
-		}
-		i++;
-	}
 	return 0;
 }

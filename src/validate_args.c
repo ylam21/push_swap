@@ -1,33 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.h                                            :+:      :+:    :+:   */
+/*   validate_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/20 10:33:31 by omaly             #+#    #+#             */
-/*   Updated: 2025/08/20 17:55:54 by omaly            ###   ########.fr       */
+/*   Created: 2025/08/20 10:33:48 by omaly             #+#    #+#             */
+/*   Updated: 2025/08/20 14:30:38 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSE_H
-#define PARSE_H
+#include "../includes/utils.h"
 
-#include <stdlib.h>
-
-typedef struct s_list
+int validate_args(int argc, char **argv)
 {
-	int d;
-	struct s_list *next;
-} t_list;
-
-// TODO: move to different header
-void swap(t_list **list);
-// newl
-t_list *parse(int argc, char **argv);
-// Other utils for lists
-t_list *ft_lstnew(int d);
-t_list *ft_lstlast(t_list *lst);
-void ft_lstadd_back(t_list **lst, t_list *new);
-int ft_lstsize(t_list *lst);
-#endif
+	if (argc < 2)
+	{
+		return 1;
+	}
+	int i = 1;
+	while (i < argc)
+	{
+		if (is_zero(argv[i]) == 0)
+		{
+			if (ft_atoi(argv[i]) == 0)
+			{
+				return 2;
+			}
+		}
+		int j = i + 1;
+		while (j < argc)
+		{
+			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
+			{
+				return 3;
+			}
+			j++;
+		}
+		i++;
+	}
+	return 0;
+}

@@ -1,9 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   validate_args.h                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/20 10:33:35 by omaly             #+#    #+#             */
+/*   Updated: 2025/08/20 14:01:12 by omaly            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PARSER_H
 #define PARSER_H
-int is_digit(int c);
-int is_sign(char c);
-int is_whitespace(char c);
-int ft_atoi(const char *s);
-int is_zero(const char *s);
 int validate_args(int argc, char **argv);
 #endif

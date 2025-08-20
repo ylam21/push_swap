@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.h                                            :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/20 10:33:31 by omaly             #+#    #+#             */
-/*   Updated: 2025/08/20 17:55:54 by omaly            ###   ########.fr       */
+/*   Created: 2025/08/20 13:59:52 by omaly             #+#    #+#             */
+/*   Updated: 2025/08/20 14:45:31 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSE_H
-#define PARSE_H
-
-#include <stdlib.h>
-
-typedef struct s_list
-{
-	int d;
-	struct s_list *next;
-} t_list;
-
-// TODO: move to different header
-void swap(t_list **list);
-// newl
-t_list *parse(int argc, char **argv);
-// Other utils for lists
-t_list *ft_lstnew(int d);
-t_list *ft_lstlast(t_list *lst);
-void ft_lstadd_back(t_list **lst, t_list *new);
-int ft_lstsize(t_list *lst);
+#ifndef UTILS_H
+#define UTILS_H
+int is_digit(int c);
+int is_sign(char c);
+int is_whitespace(char c);
+int ft_atoi(const char *s);
+int is_zero(const char *s);
 #endif
