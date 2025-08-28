@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:34:05 by omaly             #+#    #+#             */
-/*   Updated: 2025/08/20 18:56:29 by omaly            ###   ########.fr       */
+/*   Updated: 2025/08/28 14:26:21 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void swap(t_list **list)
 
 	last = *list;
 	before_last = NULL;
-	before_before_last = *list;
 
 	while (last->next != NULL)
 	{
@@ -35,28 +34,25 @@ void swap(t_list **list)
 		last = last->next;
 	}
 
-	// Case where there is only 1 node
+	// Case where there is only 1 node, nothing to swap
 	if (before_last == NULL)
 		return;
 
+	before_before_last = *list;
 
 	// Case where there is only 2 nodes
-	if (before_last == *list)
+	if (before_last == before_before_last)
 	{
 		last->next = before_last;
 		before_last->next = NULL;
+		*list = last;
 		return;
 	}
 
 	// More than 2 nodes
 	while (before_before_last->next != before_last)
-	{
 		before_before_last = before_before_last->next;
-	}
 
-	// printf("Before linking...\n");
-	// printf("%p \n",last->next);
-	// printf("%d \n",before_last->d);
 	before_before_last->next = last;
 	last->next = before_last;
 	before_last->next = NULL;
