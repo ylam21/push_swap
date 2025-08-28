@@ -1,4 +1,5 @@
-#include "../includes/parse.h"
+#include "../includes/utils.h"
+#include "../includes/list.h"
 
 int ft_lstsize(t_list *lst)
 {
@@ -63,8 +64,6 @@ int is_whitespace(char c)
 	return (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r' || c == ' ');
 }
 
-// this atoi is rewritten to behave accordingly to my needs:
-// return int if format of string is correct; otherwise return 0
 int ft_atoi(const char *s)
 {
 	if (!s)

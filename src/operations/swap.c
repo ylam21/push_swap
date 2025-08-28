@@ -6,13 +6,12 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:34:05 by omaly             #+#    #+#             */
-/*   Updated: 2025/08/28 15:09:37 by omaly            ###   ########.fr       */
+/*   Updated: 2025/08/28 21:41:30 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../includes/list.h"
 #include "../../includes/utils.h"
-#include "../../includes/parse.h"
-#include <stdio.h>
 
 // TODO: Have consistent naming for list
 

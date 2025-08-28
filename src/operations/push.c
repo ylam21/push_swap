@@ -6,12 +6,12 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:33:58 by omaly             #+#    #+#             */
-/*   Updated: 2025/08/28 15:09:29 by omaly            ###   ########.fr       */
+/*   Updated: 2025/08/28 21:40:11 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../includes/list.h"
 #include "../../includes/utils.h"
-#include "../../includes/parse.h"
 
 // Take the first element at the top of stack A and put it at the top of stack B.
 // Do nothing if A is empty.

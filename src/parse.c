@@ -6,13 +6,11 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:33:42 by omaly             #+#    #+#             */
-/*   Updated: 2025/08/20 18:51:46 by omaly            ###   ########.fr       */
+/*   Updated: 2025/08/28 21:41:45 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include "../includes/parse.h"
+#include "../includes/list.h"
 #include "../includes/utils.h"
 
 t_list *parse(int argc, char **argv)
@@ -29,11 +27,5 @@ t_list *parse(int argc, char **argv)
 		ft_lstadd_back(&head,new);
 		i++;
 	}
-	while (head)
-	{
-		printf("%d\n",head->d);
-		head = head->next;
-	}
-	printf("Stack A\n\n");
 	return head_copy;
 }
