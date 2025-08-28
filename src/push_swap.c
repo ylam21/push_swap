@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:33:46 by omaly             #+#    #+#             */
-/*   Updated: 2025/08/21 23:08:24 by omaly            ###   ########.fr       */
+/*   Updated: 2025/08/28 14:53:32 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int main(int argc, char **argv)
 	swap(&stack_a);
 	t_list *prev = stack_a;
 	stack_a = *head;
+	t_list *stack_b = NULL;
+	push(&stack_a,&stack_b);
 	while (stack_a)
 	{
 		int d = stack_a->d;

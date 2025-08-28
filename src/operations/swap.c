@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:34:05 by omaly             #+#    #+#             */
-/*   Updated: 2025/08/28 14:28:30 by omaly            ###   ########.fr       */
+/*   Updated: 2025/08/28 15:09:37 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,22 @@
 #include "../../includes/parse.h"
 #include <stdio.h>
 
-// Swap the first 2 elements at the top of stack a.
+// TODO: Have consistent naming for list
+
+// Swap the first 2 elements at the top of stack
 // Do nothing if there is only one element or none.
 // The 'top' is the node where node->next == NULL
-void swap(t_list **list)
+void swap(t_list **stack)
 {
-	if (!list || !*list || !(*list)->next)
+	if (!stack || !*stack || !(*stack)->next)
 		return;
 
 	t_list *last;
 	t_list *before_last;
 	t_list *before_before_last;
 
-	last = *list;
+
+	last = *stack;
 	before_last = NULL;
 
 	while (last->next != NULL)
@@ -39,14 +42,14 @@ void swap(t_list **list)
 	if (before_last == NULL)
 		return;
 
-	before_before_last = *list;
+	before_before_last = *stack;
 
 	// Case where there is only 2 nodes
 	if (before_last == before_before_last)
 	{
 		last->next = before_last;
 		before_last->next = NULL;
-		*list = last;
+		*stack = last;
 		return;
 	}
 
@@ -57,5 +60,4 @@ void swap(t_list **list)
 	before_before_last->next = last;
 	last->next = before_last;
 	before_last->next = NULL;
-	return;
 }
