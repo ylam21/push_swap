@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:34:05 by omaly             #+#    #+#             */
-/*   Updated: 2025/08/28 14:26:21 by omaly            ###   ########.fr       */
+/*   Updated: 2025/08/28 14:28:30 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 // Swap the first 2 elements at the top of stack a.
 // Do nothing if there is only one element or none.
+// The 'top' is the node where node->next == NULL
 void swap(t_list **list)
 {
 	if (!list || !*list || !(*list)->next)
