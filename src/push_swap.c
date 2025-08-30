@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:33:46 by omaly             #+#    #+#             */
-/*   Updated: 2025/08/30 23:23:32 by omaly            ###   ########.fr       */
+/*   Updated: 2025/08/31 00:03:49 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,15 +61,67 @@ void print_stack(t_list *stack)
 	printf("\n");
 }
 
+int get_minimum(t_list **stack)
+{
+	int min = 0;
+	t_list *curr = *stack;
+	while (curr)
+	{
+		if (curr->d < min)
+			min = curr->d;
+		curr = curr->next;
+	}
+	return min;
+}
+
+int get_maximum(t_list **stack)
+{
+	int max = 0;
+	t_list *curr = *stack;
+	while (curr)
+	{
+		if (curr->d > max)
+			max = curr->d;
+		curr = curr->next;
+	}
+	return max;
+}
+
+
 void push_swap(t_list **stack_a)
 {
-	if (is_sorted(*stack_a) != 0)
+	// empty stack a and fill it to B
+	// move this logic block to new function called: empty stack A...
+	while (*stack_a != NULL)
 	{
-		// swap(stack_a);
-		// rotate(stack_a);
-		// reverse_rotate(stack_a);
+		int size = ft_lstsize(*stack_a);
+		int min = get_minimum(stack_a);
+		int max = get_maximum(stack_a);
+		int min_index = get_index(stack_a, min);
+		int max_index = get_index(stack_a, max);
+		int counter = 0;
+		if (distance_to_top(size,min_index) < distance_to_top(size, max_index))
+		{
+			if (min_index < size / 2)
+			{
+				// reverse rotate X times
+				while (counter < distance_to_top(size,min_index))
+				{
+					reverse_rotate(stack_a);
+					counter++;
+				}
+			}
+		}
+		else{
+			while (counter < distance_to_top(size,max_index))
+			{
+				rotate(stack_a);
+				counter++;
+			}
+		}
+		t_list *stack_b = ft_lstnew(0);
+		push(stack_a,&stack_b);
 	}
-	return;
 }
 
 int main(int argc, char **argv)
@@ -82,7 +134,10 @@ int main(int argc, char **argv)
 	}
 	t_list *stack_a = parse(argc, argv);
 	print_stack(stack_a);
-	push_swap(&stack_a);
+	if (is_sorted(stack_a) != 1)
+	{
+		push_swap(&stack_a);
+	}
 	print_stack(stack_a);
 	if (is_sorted(stack_a) == 0)
 		printf("Stack A is sorted.\n");
