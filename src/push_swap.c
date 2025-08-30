@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:33:46 by omaly             #+#    #+#             */
-/*   Updated: 2025/08/28 21:42:17 by omaly            ###   ########.fr       */
+/*   Updated: 2025/08/30 23:23:32 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,37 @@
 #include "../includes/operations.h"
 #include "../includes/list.h"
 
-// TODO: fn for calculating path to top for number n
 // TODO: fn when to use RRR or SS
 int is_sorted(t_list *stack);
+
+int get_index(t_list **stack, int number)
+{
+	if (!stack || !(*stack))
+		return -1;
+	int index = 0;
+	t_list *curr = *stack;
+	while (curr)
+	{
+		if (curr->d == number)
+			return index;
+		index++;
+		curr = curr->next;
+	}
+	return -2;
+}
+
+int distance_to_top(int max_index, int index)
+{
+	if (index < 0)
+		return -1;
+	if (index == max_index)
+		return 0;
+	int middle = max_index / 2;
+	if (index >= middle)
+		return middle - index;
+	else
+		return index + 1;
+}
 
 void print_stack(t_list *stack)
 {
