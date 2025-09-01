@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:14:59 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/01 16:15:18 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/01 17:11:15 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	distance_to_top(int size, int index)
 		return (0);
 	middle = (size - 1) / 2;
 	if (index >= middle)
-		return (size - index);
+		return (size - 1 - index);
 	else
 		return (index + 1);
 }
