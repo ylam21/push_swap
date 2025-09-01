@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:33:58 by omaly             #+#    #+#             */
-/*   Updated: 2025/08/31 13:28:51 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/01 12:40:43 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 // Take the first element at the top of stack A and put it at the top of stack B.
 // Do nothing if A is empty.
 // The 'top' is the node where node->next == NULL
+
 void push(t_list **src, t_list **dest)
 {
 	if (!src || !(*src))

@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:33:46 by omaly             #+#    #+#             */
-/*   Updated: 2025/08/31 23:36:58 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/01 13:12:09 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 #include "../includes/operations.h"
 #include "../includes/list.h"
 
-int is_sorted(t_list **stack);
+int is_descending(t_list **stack);
+int is_ascending(t_list **stack);
 
 int get_index(t_list **stack, int number)
 {
@@ -101,7 +102,7 @@ int get_closer_index(int index_a, int index_b, int size)
 		return index_b;
 }
 
-void get_bound_to_top(t_list **stack)
+void get_bound_to_top(t_list **stack, char c)
 {
 	if (!stack || !(*stack))
 		return;
@@ -115,96 +116,90 @@ void get_bound_to_top(t_list **stack)
 	while (counter < distance_to_top(size, closer))
 	{
 		if (closer > (size - 1) / 2)
+		{
 			rotate(stack);
+			printf("rotate %c\n",c);
+		}
 		else
+		{
 			reverse_rotate(stack);
+			printf("reverse rotate %c\n",c);
+		}
 		counter++;
-
 	}
 }
 
-void rearrange_recent_push(t_list **stack)
-{
-	if (!stack || !(*stack))
-		return;
-
-}
-
-void rearrange_stack_b_for_push_to_a(t_list **stack)
+void get_max_to_top(t_list **stack, char c)
 {
 	if (!stack || !(*stack))
 		return;
 	int size = ft_lstsize(*stack);
 	int max = get_maximum(stack);
 	int max_index = get_index(stack,max);
-	int dist = distance_to_top(size,max_index);
+	int dist = (size - 1) - max_index;
 	int counter = 0;
 	while (counter < dist)
 	{
-		if (max_index > (size - 1) / 2)
-			rotate(stack);
-		else
-			reverse_rotate(stack);
+		rotate(stack);
+		printf("rotate %c\n",c);
 		counter++;
 	}
-
 }
 
 void empty_stack_a(t_list **stack_a, t_list **stack_b)
 {
-	int bound_max = get_maximum(stack_a);
+	int max_num = get_maximum(stack_a);
+	int prev = max_num;
 	while (*stack_a != NULL)
 	{
-		printf("max: %d\n",bound_max);
-		get_bound_to_top(stack_a);
+		int	min_num = get_minimum(stack_a);
+		if (ft_lstsize(*stack_b) != 0)
+		 	prev = ft_lstlast(*stack_b)->d;
+		get_bound_to_top(stack_a,'a');
 		push(stack_a,stack_b);
-		t_list *node_last = ft_lstlast(*stack_b);
-		int lstlast = 0;
-		if (node_last != NULL)
-		lstlast = node_last->d;
-		if (lstlast == bound_max - 1 || lstlast == bound_max)
+		printf("pb\n");
+		int curr = ft_lstlast(*stack_b)->d;
+		if (curr != prev + 1 && curr != min_num)
 		{
-			if (lstlast == bound_max - 1)
-			bound_max = bound_max - 1;
 			rotate(stack_b);
+			printf("rotate b\n");
 		}
 		printf("stack B:\n");
 		print_stack(stack_b);
 	}
-	rearrange_stack_b_for_push_to_a(stack_b);
 }
 
-void push_back_to_a(t_list **stack_a, t_list **stack_b)
+void push_swap(t_list **stack_a)
 {
-	int counter = 0;
-	int size = ft_lstsize(*stack_b);
-	while (counter < size)
+	t_list *stack_b = NULL;
+	empty_stack_a(stack_a, &stack_b);
+	if (is_ascending(&stack_b) == 0)
+		get_max_to_top(&stack_b,'b');
+	int i = 0;
+	int size = ft_lstsize(stack_b);
+	while (i < size)
 	{
-		push(stack_b,stack_a);
-		counter++;
+		push(&stack_b, stack_a);
+		printf("pa\n");
+		i++;
 	}
-}
-void push_swap(t_list **stack_a, t_list **stack_b)
-{
-	empty_stack_a(stack_a,stack_b);
-	push_back_to_a(stack_a,stack_b);
 }
 int main(int argc, char **argv)
 {
+	// Validate input
+	if (validate_args(argc, argv) != 0)
+		return (write(2,"Error\n",6), 1);
 
-	int ret = validate_args(argc, argv);
-	if (ret != 0)
-	{
-		write(2,"Error\n",6);
-		return ret;
-	}
-	t_list *stack_a = parse(argc, argv);
-	t_list *stack_b = NULL;
-	if (is_sorted(&stack_a) == 0)
-		push_swap(&stack_a,&stack_b);
-	if (is_sorted(&stack_a) == 1)
-		printf("Stack A is sorted.\n");
+	// Parse arguments to linked list
+	t_list *stack_a;
+	stack_a = parse(argc, argv);
+
+	// Push swap algorithm
+	if (is_descending(&stack_a) == 0)
+		push_swap(&stack_a);
+
 	print_stack(&stack_a);
+	// Free allocated memory
 	t_list *prev = stack_a;
 	while (stack_a)
 	{
@@ -212,5 +207,5 @@ int main(int argc, char **argv)
 		stack_a = stack_a->next;
 		free(prev);
 	}
-    return ret;
+    return 0;
 }
