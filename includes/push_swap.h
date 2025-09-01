@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:00:24 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/01 16:43:07 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/01 19:31:41 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct s_ps
 void				push_swap(t_ps *ps);
 // Init
 void				init_ps(t_ps *ps, int argc, char **argv);
+// temporary
+void	print_stack(t_list *stack);
 // Operations
 void				swap(t_list **list);
 void				push(t_list **src, t_list **dest);

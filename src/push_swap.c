@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:33:46 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/01 16:46:42 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/01 19:32:01 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int argc, char **argv)
 		return (write(2, "Error\n", 6), 1);
 	init_ps(&ps, argc, argv);
 	push_swap(&ps);
+	print_stack(ps.stack_a);
 	free_stack(ps.stack_a);
 	return (0);
 }

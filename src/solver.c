@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:26:55 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/01 16:49:04 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/01 21:32:32 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	fill_b(t_ps *ps)
 		push(&(ps->stack_a), &(ps->stack_b));
 		printf("pb\n");
 		curr = ft_lstlast(ps->stack_b)->d;
-		if (curr != prev + 1 && curr != min_num)
+		if (curr != prev + 1 && curr != min_num && ft_lstsize(ps->stack_b) > 1)
 		{
 			rotate(&(ps->stack_b));
 			printf("rotate b\n");
@@ -85,7 +85,7 @@ void	arrange_b(t_ps *ps)
 		while (i < dist)
 		{
 			rotate(&(ps->stack_b));
-			printf("rotate %c\n", 'b');
+			printf("rotate b\n");
 			i++;
 		}
 	}
@@ -110,6 +110,12 @@ void	push_swap(t_ps *ps)
 {
 	if (is_descending(ps->stack_a) == 0)
 	{
+		if (ft_lstsize(ps->stack_a) == 2)
+		{
+			rotate(&(ps->stack_a));
+			printf("rotate a\n");
+			return;
+		}
 		fill_b(ps);
 		arrange_b(ps);
 		push_back_to_a(ps);

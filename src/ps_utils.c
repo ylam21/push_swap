@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:14:59 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/01 17:11:15 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/01 19:24:54 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,23 @@ int	distance_to_top(int size, int index)
 		return (index + 1);
 }
 
-// void	print_stack(t_list *stack)
-// {
-// 	t_list	*curr;
+void	print_stack(t_list *stack)
+{
+	t_list	*curr;
 
-// 	if (!stack)
-// 	{
-// 		printf("NULL\n");
-// 		return ;
-// 	}
-// 	curr = stack;
-// 	while (curr)
-// 	{
-// 		printf("%d ", curr->d);
-// 		curr = curr->next;
-// 	}
-// 	printf("\n");
-// }
+	if (!stack)
+	{
+		printf("NULL\n");
+		return ;
+	}
+	curr = stack;
+	while (curr)
+	{
+		printf("%d ", curr->d);
+		curr = curr->next;
+	}
+	printf("\n");
+}
 
 int	get_minimum(t_list *stack)
 {
