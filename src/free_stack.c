@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.h                                            :+:      :+:    :+:   */
+/*   free_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/20 10:33:31 by omaly             #+#    #+#             */
-/*   Updated: 2025/08/28 21:38:45 by omaly            ###   ########.fr       */
+/*   Created: 2025/09/01 16:39:35 by omaly             #+#    #+#             */
+/*   Updated: 2025/09/01 16:42:32 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSE_H
-#define PARSE_H
+#include "../includes/push_swap.h"
 
-#include "list.h"
-t_list *parse(int argc, char **argv);
-
-#endif
+void free_stack(t_list *stack)
+{
+	t_list *prev = stack;
+	t_list *curr = stack;
+	while (prev)
+	{
+		curr = prev->next;
+		free(prev);
+		prev = curr;
+	}
+}

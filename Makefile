@@ -6,7 +6,7 @@
 #    By: omaly <omaly@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/20 10:34:09 by omaly             #+#    #+#              #
-#    Updated: 2025/08/28 20:44:00 by omaly            ###   ########.fr        #
+#    Updated: 2025/09/01 16:43:55 by omaly            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,9 +27,12 @@ OBJECT_DIR = obj
 # Source files
 SOURCE_FILES =	$(SOURCE_DIR)/push_swap.c \
 				$(SOURCE_DIR)/validate_args.c \
+				$(SOURCE_DIR)/solver.c \
+				$(SOURCE_DIR)/init_ps.c \
+				$(SOURCE_DIR)/free_stack.c \
+				$(SOURCE_DIR)/lst_utils.c \
+				$(SOURCE_DIR)/ps_utils.c \
 				$(SOURCE_DIR)/parse.c \
-				$(SOURCE_DIR)/utils.c \
-				$(SOURCE_DIR)/sorted.c \
 				$(SOURCE_DIR)/operations/push.c \
 				$(SOURCE_DIR)/operations/reverse_rotate.c \
 				$(SOURCE_DIR)/operations/rotate.c \
