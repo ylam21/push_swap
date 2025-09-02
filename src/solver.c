@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:26:55 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/02 11:09:38 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/02 12:25:49 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ void	bring_to_top(t_list **stack_a, int size_a)
 		if (target_idx > (size_a - 1) / 2)
 		{
 			rotate(stack_a);
-			printf("rotate %c\n", 'a');
+			printf("ra\n");
 		}
 		else
 		{
 			reverse_rotate(stack_a);
-			printf("reverse rotate %c\n", 'a');
+			printf("rra\n");
 		}
 		i++;
 	}
@@ -56,7 +56,7 @@ void	fill_b(t_ps *ps)
 		if (curr != prev + 1 && curr != min_num && ft_lstsize(ps->stack_b) > 1)
 		{
 			rotate(&(ps->stack_b));
-			printf("rotate b\n");
+			printf("rb\n");
 		}
 	}
 }
@@ -75,7 +75,7 @@ void	arrange_b(t_ps *ps)
 		while (i < dist)
 		{
 			rotate(&(ps->stack_b));
-			printf("rotate b\n");
+			printf("rb\n");
 			i++;
 		}
 	}
@@ -103,7 +103,7 @@ void	push_swap(t_ps *ps)
 		if (ft_lstsize(ps->stack_a) == 2)
 		{
 			rotate(&(ps->stack_a));
-			printf("rotate a\n");
+			printf("ra\n");
 			return ;
 		}
 		fill_b(ps);
