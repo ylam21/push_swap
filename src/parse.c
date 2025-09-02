@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:33:42 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/01 16:12:58 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/02 13:08:05 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,18 @@ t_list	*parse(int argc, char **argv)
 	int		i;
 	int		value;
 	t_list	*head;
-	t_list	*head_copy;
 	t_list	*new;
 
-	i = 1;
-	value = ft_atoi(argv[i]);
+	i = 0;
+	value = ft_atoi(argv[argc - 1 - i]);
 	i++;
 	head = ft_lstnew(value);
-	head_copy = head;
-	while (i < argc)
+	while (i < argc - 1)
 	{
-		value = ft_atoi(argv[i]);
+		value = ft_atoi(argv[argc - 1 - i]);
 		new = ft_lstnew(value);
 		ft_lstadd_back(&head, new);
 		i++;
 	}
-	return (head_copy);
+	return (head);
 }
