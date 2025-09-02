@@ -1,32 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_args.c                                    :+:      :+:    :+:   */
+/*   validate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:33:48 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/01 16:20:33 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/02 11:16:46 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	is_digit(int c)
-{
-	if ('0' <= c && c <= '9')
-		return (1);
-	return (0);
-}
-
-int	is_sign(char c)
-{
-	return (c == '-' || c == '+');
-}
-
-int	is_whitespace(char c)
-{
-	return (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
-		|| c == ' ');
-}
+#include "../includes/push_swap.h"
 
 int	ft_atoi(const char *s)
 {
@@ -39,22 +23,16 @@ int	ft_atoi(const char *s)
 	i = 0;
 	minus = 0;
 	ret = 0;
-	while (is_whitespace(s[i]) == 1)
+	while (is_whitespace(s[i]))
 		i++;
-	if (is_sign(s[i]) == 1)
+	if (is_sign(s[i]))
 	{
 		if (s[i] == '-')
 			minus = 1;
 		i++;
 	}
-	while (s[i] != '\0')
-	{
-		if (is_digit(s[i]) == 0)
-			return (0);
-		ret = ret * 10;
-		ret = ret + s[i] - '0';
-		i++;
-	}
+	while (is_digit(s[i]))
+		ret = ret * 10 + (s[i++] - '0');
 	if (minus)
 		return (-ret);
 	return (ret);
@@ -87,7 +65,7 @@ int	validate_args(int argc, char **argv)
 	while (i < argc)
 	{
 		if (is_zero(argv[i]) == 0 && ft_atoi(argv[i]) == 0)
-				return (2);
+			return (2);
 		j = i + 1;
 		while (j < argc)
 		{

@@ -6,44 +6,34 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:26:55 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/01 21:32:32 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/02 11:09:38 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	get_bound_to_top(t_ps *ps)
+void	bring_to_top(t_list **stack_a, int size_a)
 {
-	int	size;
-	int	min;
-	int	max;
-	int	min_index;
-	int	max_index;
-	int	closer;
-	int	counter;
+	int	target_idx;
+	int	distance;
+	int	i;
 
-	if (!ps->size_a)
-		return ;
-	size = ft_lstsize(ps->stack_a);
-	min = get_minimum(ps->stack_a);
-	max = get_maximum(ps->stack_a);
-	min_index = get_index(ps->stack_a, min);
-	max_index = get_index(ps->stack_a, max);
-	closer = get_closer_index(min_index, max_index, size);
-	counter = 0;
-	while (counter < distance_to_top(size, closer))
+	target_idx = get_target_index(stack_a, size_a);
+	distance = distance_to_top(size_a, target_idx);
+	i = 0;
+	while (i < distance)
 	{
-		if (closer > (size - 1) / 2)
+		if (target_idx > (size_a - 1) / 2)
 		{
-			rotate(&(ps->stack_a));
+			rotate(stack_a);
 			printf("rotate %c\n", 'a');
 		}
 		else
 		{
-			reverse_rotate(&(ps->stack_a));
+			reverse_rotate(stack_a);
 			printf("reverse rotate %c\n", 'a');
 		}
-		counter++;
+		i++;
 	}
 }
 
@@ -56,10 +46,10 @@ void	fill_b(t_ps *ps)
 	prev = ps->highest_a;
 	while (ps->stack_a != NULL)
 	{
-		min_num = get_minimum(ps->stack_a);
+		min_num = get_min(ps->stack_a);
 		if (ft_lstsize(ps->stack_b) != 0)
 			prev = ft_lstlast(ps->stack_b)->d;
-		get_bound_to_top(ps);
+		bring_to_top(&(ps->stack_a), ft_lstsize(ps->stack_a));
 		push(&(ps->stack_a), &(ps->stack_b));
 		printf("pb\n");
 		curr = ft_lstlast(ps->stack_b)->d;
@@ -114,7 +104,7 @@ void	push_swap(t_ps *ps)
 		{
 			rotate(&(ps->stack_a));
 			printf("rotate a\n");
-			return;
+			return ;
 		}
 		fill_b(ps);
 		arrange_b(ps);

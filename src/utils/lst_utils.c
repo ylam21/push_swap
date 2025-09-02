@@ -6,11 +6,11 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:39:43 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/01 16:09:58 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/02 11:17:11 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 int	ft_lstsize(t_list *lst)
 {
@@ -61,59 +61,4 @@ void	ft_lstadd_back(t_list **lst, t_list *newlst)
 	}
 	last = ft_lstlast(*lst);
 	last->next = newlst;
-}
-
-int	is_descending(t_list *lst)
-{
-	int		max;
-	t_list	*curr;
-
-	if (!lst || lst->next == NULL)
-		return (1);
-	curr = lst;
-	while (curr->next)
-	{
-		max = curr->d;
-		if (max < curr->next->d)
-			return (0);
-		curr = curr->next;
-	}
-	return (1);
-}
-
-int	is_ascending(t_list *lst)
-{
-	int		min;
-	t_list	*curr;
-
-	if (!lst || lst->next == NULL)
-		return (1);
-	curr = lst;
-	while (curr->next)
-	{
-		min = curr->d;
-		if (min > curr->next->d)
-			return (0);
-		curr = curr->next;
-	}
-	return (1);
-}
-
-int	get_index(t_list *lst, int find)
-{
-	int		index;
-	t_list	*curr;
-
-	if (!lst)
-		return (-1);
-	index = 0;
-	curr = lst;
-	while (curr)
-	{
-		if (curr->d == find)
-			return (index);
-		index++;
-		curr = curr->next;
-	}
-	return (-1);
 }

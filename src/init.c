@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/20 10:33:46 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/02 11:51:40 by omaly            ###   ########.fr       */
+/*   Created: 2025/09/01 16:24:00 by omaly             #+#    #+#             */
+/*   Updated: 2025/09/02 11:05:31 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+void	init_ps(t_ps *ps, int argc, char **argv)
 {
-	t_ps	ps;
-
-	if (validate_args(argc, argv) != 0)
-		return (write(2, "Error\n", 6), 1);
-	init_ps(&ps, argc, argv);
-	push_swap(&ps);
-	free_stack(ps.stack_a);
-	return (0);
+	ps->stack_a = parse(argc, argv);
+	ps->stack_b = NULL;
+	ps->size_a = ft_lstsize(ps->stack_a);
+	ps->highest_a = get_max(ps->stack_a);
 }

@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:00:24 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/01 19:31:41 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/02 11:50:11 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,34 +30,35 @@ typedef struct s_ps
 	int				size_a;
 	int				highest_a;
 }					t_ps;
-// Main func
+// Core
 void				push_swap(t_ps *ps);
-// Init
 void				init_ps(t_ps *ps, int argc, char **argv);
 // temporary
-void	print_stack(t_list *stack);
+void				print_stack(t_list *stack);
 // Operations
-void				swap(t_list **list);
 void				push(t_list **src, t_list **dest);
 void				rotate(t_list **stack);
 void				reverse_rotate(t_list **stack);
-// Parse
+// Parsing and validation
 t_list				*parse(int argc, char **argv);
-// Validation
 int					validate_args(int argc, char **argv);
-int					ft_atoi(const char *s);
 // List utilities
 t_list				*ft_lstnew(int d);
 t_list				*ft_lstlast(t_list *lst);
 void				ft_lstadd_back(t_list **lst, t_list *newlst);
 int					ft_lstsize(t_list *lst);
 // Other push_swap utils
+int					ft_atoi(const char *s);
 void				free_stack(t_list *stack);
 int					is_ascending(t_list *lst);
 int					is_descending(t_list *lst);
 int					get_index(t_list *lst, int find);
-int					get_maximum(t_list *stack);
-int					get_minimum(t_list *stack);
+int					get_max(t_list *stack);
+int					get_min(t_list *stack);
+int					get_target_index(t_list **stack_a, int size_a);
 int					get_closer_index(int index_a, int index_b, int size);
 int					distance_to_top(int size, int index);
+int					is_digit(int c);
+int					is_sign(char c);
+int					is_whitespace(char c);
 #endif

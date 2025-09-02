@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   char_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/20 10:33:46 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/02 11:51:40 by omaly            ###   ########.fr       */
+/*   Created: 2025/09/02 11:14:46 by omaly             #+#    #+#             */
+/*   Updated: 2025/09/02 11:14:47 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
-
-int	main(int argc, char **argv)
+int	is_digit(int c)
 {
-	t_ps	ps;
-
-	if (validate_args(argc, argv) != 0)
-		return (write(2, "Error\n", 6), 1);
-	init_ps(&ps, argc, argv);
-	push_swap(&ps);
-	free_stack(ps.stack_a);
+	if ('0' <= c && c <= '9')
+		return (1);
 	return (0);
+}
+
+int	is_sign(char c)
+{
+	return (c == '-' || c == '+');
+}
+
+int	is_whitespace(char c)
+{
+	return (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
+		|| c == ' ');
 }

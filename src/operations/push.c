@@ -6,42 +6,52 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:33:58 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/01 16:18:35 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/02 11:49:40 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-// Take the first element at the top of stack A and put it at the top of stack B.
+t_list	*pop_last(t_list **lst)
+{
+	t_list	*last;
+	t_list	*before;
+
+	if (!lst || !(*lst))
+		return (NULL);
+	last = *lst;
+	before = NULL;
+	while (last->next)
+	{
+		before = last;
+		last = last->next;
+	}
+	if (before)
+		before->next = NULL;
+	else
+		*lst = NULL;
+	return (last);
+}
+
+// Take the first element at the top of stack A
+// and put it at the top of stack B.
 // Do nothing if A is empty.
 // The 'top' is the node where node->next == NULL
 void	push(t_list **src, t_list **dest)
 {
-	t_list	*last;
-	t_list	*before_last;
+	t_list	*last_src;
 	t_list	*last_dest;
 
 	if (!src || !(*src))
 		return ;
-	last = *src;
-	before_last = NULL;
-	while (last->next != NULL)
-	{
-		before_last = last;
-		last = last->next;
-	}
-	if (before_last)
-		before_last->next = NULL;
-	else
-		*src = NULL;
-	if (*dest == NULL)
-		*dest = last;
+	last_src = pop_last(src);
+	if (!last_src)
+		return ;
+	if (!(*dest))
+		*dest = last_src;
 	else
 	{
-		last_dest = *dest;
-		while (last_dest->next)
-			last_dest = last_dest->next;
-		last_dest->next = last;
+		last_dest = ft_lstlast(*dest);
+		last_dest->next = last_src;
 	}
-	last->next = NULL;
 }

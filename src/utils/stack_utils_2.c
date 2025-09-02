@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   stack_utils_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/20 10:33:46 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/02 11:51:40 by omaly            ###   ########.fr       */
+/*   Created: 2025/09/02 11:07:47 by omaly             #+#    #+#             */
+/*   Updated: 2025/09/02 11:18:01 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+int	get_target_index(t_list **stack_a, int size_a)
 {
-	t_ps	ps;
+	int	min_idx;
+	int	max_idx;
 
-	if (validate_args(argc, argv) != 0)
-		return (write(2, "Error\n", 6), 1);
-	init_ps(&ps, argc, argv);
-	push_swap(&ps);
-	free_stack(ps.stack_a);
-	return (0);
+	min_idx = get_index(*stack_a, get_min(*stack_a));
+	max_idx = get_index(*stack_a, get_max(*stack_a));
+	return (get_closer_index(min_idx, max_idx, size_a));
 }
