@@ -6,13 +6,13 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:39:43 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/02 11:17:11 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/15 13:50:21 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int	ft_lstsize(t_list *lst)
+unsigned int	ft_lstsize(t_list *lst)
 {
 	int	size;
 
