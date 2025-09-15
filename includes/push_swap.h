@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:00:24 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/02 11:55:45 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/15 11:10:21 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,12 @@ typedef struct s_ps
 void				push_swap(t_ps *ps);
 void				init_ps(t_ps *ps, int argc, char **argv);
 // Operations
-void				push(t_list **src, t_list **dest);
-void				rotate(t_list **stack);
-void				reverse_rotate(t_list **stack);
+void				push_a(t_list **src, t_list **dest);
+void				push_b(t_list **src, t_list **dest);
+void				rotate_a(t_list **stack);
+void				rotate_b(t_list **stack);
+void				reverse_rotate_a(t_list **stack);
+void				reverse_rotate_b(t_list **stack);
 // Parsing and validation
 t_list				*parse(int argc, char **argv);
 int					validate_args(int argc, char **argv);
