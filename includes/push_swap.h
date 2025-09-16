@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:00:24 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/16 17:37:28 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/16 17:46:22 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void				ss(t_ps *ps);
 int					*parse_args(int argc, char **argv);
 t_list				*build_stack(unsigned int *arr, size_t size);
 int					validate_args(int argc, char **argv);
-unsigned int *get_ranked_arr(int *arr, size_t size);
+unsigned int		*get_ranked_arr(int *arr, size_t size);
 // Debug
 void				print_error(void);
 void				print_arr(const int *arr, size_t size);
@@ -58,7 +58,7 @@ t_list				*ft_lstnew(int d);
 t_list				*ft_lstlast(t_list *lst);
 void				ft_lstadd_back(t_list **lst, t_list *newlst);
 unsigned int		ft_lstsize(t_list *lst);
-void				free_stack(t_list *stack);
+void				free_ps(t_ps *ps);
 int					is_descending(t_list *lst);
 int					get_max(t_list *stack);
 int					get_min(t_list *stack);
@@ -67,5 +67,5 @@ int					ft_atoi(const char *s);
 int					is_digit(int c);
 int					is_sign(char c);
 int					is_whitespace(char c);
-int	is_zero(const char *s);
+int					is_zero(const char *s);
 #endif

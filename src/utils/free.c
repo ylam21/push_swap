@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:39:35 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/02 10:33:55 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/16 17:44:51 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,10 @@ void	free_stack(t_list *stack)
 		free(prev);
 		prev = curr;
 	}
+}
+
+void free_ps(t_ps *ps)
+{
+	free_stack(ps->stack_a);
+	free_stack(ps->stack_b);
 }

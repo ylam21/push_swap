@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:33:46 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/16 17:31:59 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/16 17:44:15 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ int	main(int argc, char **argv)
 
 	push_swap(&ps);
 
-	free_stack(ps.stack_a);
-	free_stack(ps.stack_b);
+	free_ps(&ps);
 
 	return (0);
 }
