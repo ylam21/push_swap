@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:39:43 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/15 13:50:21 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/16 14:49:12 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ unsigned int	ft_lstsize(t_list *lst)
 	return (size);
 }
 
-t_list	*ft_lstnew(int d)
+t_list	*ft_lstnew(int value)
 {
 	t_list	*lst;
 
 	lst = malloc(sizeof(t_list));
 	if (!lst)
 		return (NULL);
-	lst->d = d;
+	lst->rank = value;
 	lst->next = NULL;
 	return (lst);
 }

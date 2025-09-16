@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:33:46 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/15 17:33:14 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/16 17:07:36 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@ int	main(int argc, char **argv)
 	t_ps	ps;
 
 	if (validate_args(argc, argv) != 0)
-		return (write(2, "Error\n", 6), 1);
-	init_ps(&ps, argc, argv);
+		return (print_error(), 1);
+
+	if (init_ps(&ps, argc, argv) != 0)
+		return (print_error(), 1);
+
 	push_swap(&ps);
-	print_stack(ps.stack_a);
-	print_stack(ps.stack_b);
 	free_stack(ps.stack_a);
 	return (0);
 }

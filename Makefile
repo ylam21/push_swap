@@ -6,7 +6,7 @@
 #    By: omaly <omaly@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/20 10:34:09 by omaly             #+#    #+#              #
-#    Updated: 2025/09/15 15:17:40 by omaly            ###   ########.fr        #
+#    Updated: 2025/09/16 15:19:59 by omaly            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,13 +28,15 @@ OBJECT_DIR = obj
 SOURCE_FILES =	$(SOURCE_DIR)/push_swap.c \
 				$(SOURCE_DIR)/validate.c \
 				$(SOURCE_DIR)/sort.c \
-				$(SOURCE_DIR)/init.c \
-				$(SOURCE_DIR)/parse.c \
+				$(SOURCE_DIR)/init/init_ps.c \
+				$(SOURCE_DIR)/init/parse.c \
+				$(SOURCE_DIR)/init/normalization.c \
 				$(SOURCE_DIR)/operations/push.c \
 				$(SOURCE_DIR)/operations/reverse_rotate.c \
 				$(SOURCE_DIR)/operations/rotate.c \
 				$(SOURCE_DIR)/operations/swap.c \
 				$(SOURCE_DIR)/utils/debug.c \
+				$(SOURCE_DIR)/utils/print_error.c \
 				$(SOURCE_DIR)/utils/free.c \
 				$(SOURCE_DIR)/utils/lst_utils.c \
 				$(SOURCE_DIR)/utils/math_utils.c \
@@ -57,6 +59,7 @@ $(OBJECT_DIR)/%.o: $(SOURCE_DIR)/%.c|$(OBJECT_DIR)
 $(OBJECT_DIR):
 	mkdir -p $(OBJECT_DIR)
 	mkdir -p $(OBJECT_DIR)/operations
+	mkdir -p $(OBJECT_DIR)/init
 	mkdir -p $(OBJECT_DIR)/utils
 
 clean:

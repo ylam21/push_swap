@@ -1,23 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils_2.c                                    :+:      :+:    :+:   */
+/*   init_ps.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/02 11:07:47 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/02 11:18:01 by omaly            ###   ########.fr       */
+/*   Created: 2025/09/01 16:24:00 by omaly             #+#    #+#             */
+/*   Updated: 2025/09/16 17:10:55 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int	get_target_index(t_list **stack_a, int size_a)
+int	init_ps(t_ps *ps, int argc, char **argv)
 {
-	int	min_idx;
-	int	max_idx;
+	int *raw;
+	unsigned int *ranked;
 
-	min_idx = get_index(*stack_a, get_min(*stack_a));
-	max_idx = get_index(*stack_a, get_max(*stack_a));
-	return (get_closer_index(min_idx, max_idx, size_a));
+	raw = parse_args(argc, argv);
+	if (!raw)
+		return 1;
+	ranked = normalize(raw, argc - 1);
+	if (!ranked){
+		free(raw);
+		return 2;
+	}
+	ps->stack_a = build_stack(ranked, argc - 1);
+	if (!ps->stack_a) {
+		free(raw);
+		free(ranked);
+		return 3;
+	}
+	ps->stack_b = NULL;
+	ps->size_a = ft_lstsize(ps->stack_a);
+	free(raw);
+	free(ranked);
+	return 0;
 }

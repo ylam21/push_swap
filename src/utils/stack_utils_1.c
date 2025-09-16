@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 10:30:01 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/02 11:18:39 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/16 15:22:54 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int	get_min(t_list *stack)
 	int		min;
 
 	curr = stack;
-	min = curr->d;
+	min = curr->rank;
 	while (curr)
 	{
-		if (curr->d < min)
-			min = curr->d;
+		if (curr->rank < min)
+			min = curr->rank;
 		curr = curr->next;
 	}
 	return (min);
@@ -34,11 +34,11 @@ int	get_max(t_list *stack)
 	int		max;
 
 	curr = stack;
-	max = curr->d;
+	max = curr->rank;
 	while (curr)
 	{
-		if (curr->d > max)
-			max = curr->d;
+		if (curr->rank > max)
+			max = curr->rank;
 		curr = curr->next;
 	}
 	return (max);
@@ -54,8 +54,8 @@ int	is_descending(t_list *lst)
 	curr = lst;
 	while (curr->next)
 	{
-		max = curr->d;
-		if (max < curr->next->d)
+		max = curr->rank;
+		if (max < curr->next->rank)
 			return (0);
 		curr = curr->next;
 	}
@@ -72,8 +72,8 @@ int	is_ascending(t_list *lst)
 	curr = lst;
 	while (curr->next)
 	{
-		min = curr->d;
-		if (min > curr->next->d)
+		min = curr->rank;
+		if (min > curr->next->rank)
 			return (0);
 		curr = curr->next;
 	}
@@ -91,7 +91,7 @@ int	get_index(t_list *lst, int find)
 	curr = lst;
 	while (curr)
 	{
-		if (curr->d == find)
+		if (curr->rank == find)
 			return (index);
 		index++;
 		curr = curr->next;

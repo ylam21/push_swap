@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:26:55 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/15 17:46:52 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/16 15:18:01 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@ void sort_3(t_ps *ps)
 	int min = get_min(ps->stack_a);
 	int max = get_max(ps->stack_a);
 	t_list *tail = ft_lstlast(ps->stack_a);
-	if (min == ps->stack_a->d && max == ft_lstlast(ps->stack_a)->d)
+	if (min == ps->stack_a->rank && max == ft_lstlast(ps->stack_a)->rank)
 	{
 		sa(ps);
 		rra(ps);
 	}
-	else if (min != ps->stack_a->d && max == tail->d)
+	else if (min != ps->stack_a->rank && max == tail->rank)
 		ra(ps);
-	else if (min == ps->stack_a->d && max != tail->d)
+	else if (min == ps->stack_a->rank && max != tail->rank)
 		rra(ps);
-	else if (max == ps->stack_a->d && min != tail->d)
+	else if (max == ps->stack_a->rank && min != tail->rank)
 		sa(ps);
-	else if (max != ps->stack_a->d && min == tail->d)
+	else if (max != ps->stack_a->rank && min == tail->rank)
 	{
 		sa(ps);
 		ra(ps);
@@ -49,7 +49,7 @@ void radix_sort(t_ps *ps)
 		unsigned int size = ft_lstsize(ps->stack_a);
 		while (j < size)
 		{
-			int value = ft_lstlast(ps->stack_a)->d;
+			int value = ft_lstlast(ps->stack_a)->rank;
 			if (((value >> i) & 1) == 0)
 				pb(ps);
 			else

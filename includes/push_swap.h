@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:00:24 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/15 17:56:54 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/16 16:51:54 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@
 
 typedef struct s_list
 {
-	int				value;
-	unsinged int	rank;
+	int				rank;
 	struct s_list	*next;
 }					t_list;
 
@@ -30,9 +29,13 @@ typedef struct s_ps
 	t_list			*stack_b;
 	unsigned int	size_a;
 }					t_ps;
+int *parse_args(int argc, char **argv);
+void print_arr(const int *arr, size_t size);
+void print_error(void);
+unsigned int *normalize(int *arr, size_t size);
 // Main
 void				push_swap(t_ps *ps);
-void				init_ps(t_ps *ps, int argc, char **argv);
+int				init_ps(t_ps *ps, int argc, char **argv);
 // Operations
 void				pa(t_ps *ps);
 void				pb(t_ps *ps);
@@ -46,7 +49,7 @@ void				sa(t_ps *ps);
 void				sb(t_ps *ps);
 void				ss(t_ps *ps);
 // Parsing and validation
-t_list				*parse(int argc, char **argv);
+t_list				*build_stack(unsigned int *arr, size_t size);
 int					validate_args(int argc, char **argv);
 // Debug
 void				print_stack(t_list *stack);

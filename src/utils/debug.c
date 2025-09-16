@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:14:59 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/02 11:17:30 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/16 15:22:07 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	print_stack(t_list *stack)
 	curr = stack;
 	while (curr)
 	{
-		printf("%d ", curr->d);
+		printf("%d ", curr->rank);
 		curr = curr->next;
 	}
 	printf("\n");
