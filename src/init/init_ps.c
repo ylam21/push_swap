@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:24:00 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/16 17:10:55 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/16 17:24:23 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	init_ps(t_ps *ps, int argc, char **argv)
 	raw = parse_args(argc, argv);
 	if (!raw)
 		return 1;
-	ranked = normalize(raw, argc - 1);
+	ranked = get_ranked_arr(raw, argc - 1);
 	if (!ranked){
 		free(raw);
 		return 2;

@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 10:30:01 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/16 15:22:54 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/16 17:21:36 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,41 +60,4 @@ int	is_descending(t_list *lst)
 		curr = curr->next;
 	}
 	return (1);
-}
-
-int	is_ascending(t_list *lst)
-{
-	int		min;
-	t_list	*curr;
-
-	if (!lst || lst->next == NULL)
-		return (1);
-	curr = lst;
-	while (curr->next)
-	{
-		min = curr->rank;
-		if (min > curr->next->rank)
-			return (0);
-		curr = curr->next;
-	}
-	return (1);
-}
-
-int	get_index(t_list *lst, int find)
-{
-	int		index;
-	t_list	*curr;
-
-	if (!lst)
-		return (-1);
-	index = 0;
-	curr = lst;
-	while (curr)
-	{
-		if (curr->rank == find)
-			return (index);
-		index++;
-		curr = curr->next;
-	}
-	return (-1);
 }

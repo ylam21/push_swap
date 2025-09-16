@@ -1,17 +1,16 @@
-#include "../../includes/push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ranking.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/16 17:26:18 by omaly             #+#    #+#             */
+/*   Updated: 2025/09/16 17:26:19 by omaly            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void print_arr(const int *arr, size_t size)
-{
-	if (!arr)
-		return;
-	unsigned int i = 0;
-	while (i < size)
-	{
-		printf("%d ",arr[i]);
-		i++;
-	}
-	printf("\n");
-}
+#include "../../includes/push_swap.h"
 
 void bubble_sort(int *arr, int size)
 {
@@ -65,7 +64,7 @@ int *ft_arrcpy(const int*src, size_t n)
 	return (cpy);
 }
 
-unsigned int *normalize(int *arr, size_t size)
+unsigned int *get_ranked_arr(int *arr, size_t size)
 {
 	if (!arr)
 		return NULL;

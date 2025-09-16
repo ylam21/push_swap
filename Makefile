@@ -6,7 +6,7 @@
 #    By: omaly <omaly@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/20 10:34:09 by omaly             #+#    #+#              #
-#    Updated: 2025/09/16 15:19:59 by omaly            ###   ########.fr        #
+#    Updated: 2025/09/16 17:33:36 by omaly            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,19 +30,18 @@ SOURCE_FILES =	$(SOURCE_DIR)/push_swap.c \
 				$(SOURCE_DIR)/sort.c \
 				$(SOURCE_DIR)/init/init_ps.c \
 				$(SOURCE_DIR)/init/parse.c \
-				$(SOURCE_DIR)/init/normalization.c \
-				$(SOURCE_DIR)/operations/push.c \
-				$(SOURCE_DIR)/operations/reverse_rotate.c \
-				$(SOURCE_DIR)/operations/rotate.c \
-				$(SOURCE_DIR)/operations/swap.c \
+				$(SOURCE_DIR)/init/ranking.c \
+				$(SOURCE_DIR)/init/build_stack.c \
+				$(SOURCE_DIR)/ops/push.c \
+				$(SOURCE_DIR)/ops/reverse_rotate.c \
+				$(SOURCE_DIR)/ops/rotate.c \
+				$(SOURCE_DIR)/ops/swap.c \
 				$(SOURCE_DIR)/utils/debug.c \
-				$(SOURCE_DIR)/utils/print_error.c \
+				$(SOURCE_DIR)/utils/error.c \
 				$(SOURCE_DIR)/utils/free.c \
 				$(SOURCE_DIR)/utils/lst_utils.c \
-				$(SOURCE_DIR)/utils/math_utils.c \
 				$(SOURCE_DIR)/utils/char_utils.c \
-				$(SOURCE_DIR)/utils/stack_utils_1.c \
-				$(SOURCE_DIR)/utils/stack_utils_2.c
+				$(SOURCE_DIR)/utils/stack_utils.c
 
 # Object files
 OBJECT_FILES := $(patsubst $(SOURCE_DIR)/%.c,$(OBJECT_DIR)/%.o,$(SOURCE_FILES))
@@ -58,7 +57,7 @@ $(OBJECT_DIR)/%.o: $(SOURCE_DIR)/%.c|$(OBJECT_DIR)
 
 $(OBJECT_DIR):
 	mkdir -p $(OBJECT_DIR)
-	mkdir -p $(OBJECT_DIR)/operations
+	mkdir -p $(OBJECT_DIR)/ops
 	mkdir -p $(OBJECT_DIR)/init
 	mkdir -p $(OBJECT_DIR)/utils
 
