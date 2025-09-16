@@ -6,7 +6,7 @@
 #    By: omaly <omaly@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/20 10:34:09 by omaly             #+#    #+#              #
-#    Updated: 2025/09/16 17:33:36 by omaly            ###   ########.fr        #
+#    Updated: 2025/09/16 17:43:19 by omaly            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,10 +26,10 @@ OBJECT_DIR = obj
 
 # Source files
 SOURCE_FILES =	$(SOURCE_DIR)/push_swap.c \
-				$(SOURCE_DIR)/validate.c \
+				$(SOURCE_DIR)/validate_args.c \
 				$(SOURCE_DIR)/sort.c \
 				$(SOURCE_DIR)/init/init_ps.c \
-				$(SOURCE_DIR)/init/parse.c \
+				$(SOURCE_DIR)/init/parse_args.c \
 				$(SOURCE_DIR)/init/ranking.c \
 				$(SOURCE_DIR)/init/build_stack.c \
 				$(SOURCE_DIR)/ops/push.c \
