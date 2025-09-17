@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 20:49:10 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/17 20:58:26 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/17 21:38:19 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,10 @@ static int	ft_getwordcount(char const *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	int word_count;
-	char **str_arr;
-	int start;
-	int i;
+	int		word_count;
+	char	**str_arr;
+	int		start;
+	int		i;
 
 	word_count = ft_getwordcount(s, c);
 	str_arr = malloc(sizeof(char *) * (word_count + 1));

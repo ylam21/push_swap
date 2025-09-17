@@ -6,23 +6,17 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:00:24 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/17 21:10:06 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/17 21:35:18 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include "../libft/includes/libft.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-#include "../libft/includes/libft.h"
-
-typedef struct s_list
-{
-	int				rank;
-	struct s_list	*next;
-}					t_list;
 
 typedef struct s_ps
 {
@@ -38,6 +32,7 @@ int					init_ps(t_ps *ps, int argc, char **argv);
 // Parsing
 int					*strv_to_arr(char **strv, int count);
 t_list				*arr_to_list(unsigned int *arr, size_t size);
+
 // Operations
 void				pa(t_ps *ps);
 void				pb(t_ps *ps);
@@ -57,20 +52,12 @@ int					validate_args(int argc, char **argv);
 unsigned int		*get_ranked_arr(int *arr, size_t size);
 // Debug
 void				print_error(int fd);
-void				print_arr(const int *arr, size_t size);
 void				print_stack(t_list *stack);
-// Utilities for operations on t_list
-t_list				*ft_lstnew(int d);
-t_list				*ft_lstlast(t_list *lst);
-void				ft_lstadd_back(t_list **lst, t_list *newlst);
-unsigned int		ft_lstsize(t_list *lst);
+// Utilities
 void				free_ps(t_ps *ps);
 int					is_descending(t_list *lst);
 int					get_max(t_list *stack);
 int					get_min(t_list *stack);
-// Other Utilities
-int					ft_atoi(const char *s);
-int					is_sign(char c);
-int					is_whitespace(char c);
+int					get_strv_len(char **strv);
 int					is_zero(const char *s);
 #endif

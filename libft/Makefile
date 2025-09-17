@@ -6,7 +6,7 @@
 #    By: omaly <omaly@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/17 20:52:03 by omaly             #+#    #+#              #
-#    Updated: 2025/09/17 21:05:59 by omaly            ###   ########.fr        #
+#    Updated: 2025/09/17 21:36:20 by omaly            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,12 @@ OBJECT_DIR = obj
 SOURCE_FILES =	$(SOURCE_DIR)/ft_split.c \
 				$(SOURCE_DIR)/ft_strlcpy.c \
 				$(SOURCE_DIR)/ft_strlen.c \
+				$(SOURCE_DIR)/ft_memset.c \
+				$(SOURCE_DIR)/ft_strncmp.c \
+				$(SOURCE_DIR)/ft_lstsize.c \
+				$(SOURCE_DIR)/ft_lstnew.c \
+				$(SOURCE_DIR)/ft_lstlast.c \
+				$(SOURCE_DIR)/ft_lstadd_back.c \
 				$(SOURCE_DIR)/ft_isdigit.c
 
 # Object files

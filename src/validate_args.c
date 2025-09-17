@@ -6,46 +6,11 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:33:48 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/17 21:00:11 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/17 21:39:24 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-
-
-
-
-
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
-{
-	unsigned int	i;
-
-	if (n == 0)
-		return (0);
-	i = 0;
-	while (s1[i] != '\0' && s1[i] == s2[i] && i < n)
-		i++;
-	return (s1[i] - s2[i]);
-}
-
-void	*ft_memset(void *s, int c, size_t n)
-{
-	unsigned char	*_s;
-	unsigned int	i;
-
-	if (!s)
-		return (NULL);
-	_s = (unsigned char *)s;
-	i = 0;
-	while (i < n)
-	{
-		_s[i] = c;
-		i++;
-	}
-	return (s);
-}
-
 
 int	check_int(char *s, size_t s_len)
 {
@@ -134,6 +99,7 @@ int	validate_args(int argc, char **argv)
 	if (argc == 1)
 		return (0);
 	else if (argc == 2)
+
 		return (handle_one_param(argv[1]));
 	else if (argc > 2)
 		return (handle_more_param(argc, argv));

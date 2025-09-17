@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:56:50 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/17 19:11:47 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/17 21:38:40 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	*strv_to_arr(char **strv, int count)
 {
-	int				*res;
+	int	*res;
 	int	i;
 
 	if (count < 1 || !strv)

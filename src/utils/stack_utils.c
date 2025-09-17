@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils_1.c                                    :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 10:30:01 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/16 17:21:36 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/17 21:26:00 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int	get_min(t_list *stack)
 	int		min;
 
 	curr = stack;
-	min = curr->rank;
+	min = curr->content;
 	while (curr)
 	{
-		if (curr->rank < min)
-			min = curr->rank;
+		if (curr->content < min)
+			min = curr->content;
 		curr = curr->next;
 	}
 	return (min);
@@ -34,11 +34,11 @@ int	get_max(t_list *stack)
 	int		max;
 
 	curr = stack;
-	max = curr->rank;
+	max = curr->content;
 	while (curr)
 	{
-		if (curr->rank > max)
-			max = curr->rank;
+		if (curr->content > max)
+			max = curr->content;
 		curr = curr->next;
 	}
 	return (max);
@@ -54,8 +54,8 @@ int	is_descending(t_list *lst)
 	curr = lst;
 	while (curr->next)
 	{
-		max = curr->rank;
-		if (max < curr->next->rank)
+		max = curr->content;
+		if (max < curr->next->content)
 			return (0);
 		curr = curr->next;
 	}
