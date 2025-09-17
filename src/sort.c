@@ -6,17 +6,21 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:26:55 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/16 15:18:01 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/17 14:53:42 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void sort_3(t_ps *ps)
+void	sort_3(t_ps *ps)
 {
-	int min = get_min(ps->stack_a);
-	int max = get_max(ps->stack_a);
-	t_list *tail = ft_lstlast(ps->stack_a);
+	int		min;
+	int		max;
+	t_list	*tail;
+
+	min = get_min(ps->stack_a);
+	max = get_max(ps->stack_a);
+	tail = ft_lstlast(ps->stack_a);
 	if (min == ps->stack_a->rank && max == ft_lstlast(ps->stack_a)->rank)
 	{
 		sa(ps);
@@ -35,21 +39,30 @@ void sort_3(t_ps *ps)
 	}
 }
 
-void radix_sort(t_ps *ps)
+unsigned int	get_num_bits(unsigned int num)
 {
-	int max = get_max(ps->stack_a);
-	unsigned int num_bits = 0;
-	while (max >> num_bits != 0)
+	unsigned int	num_bits;
+
+	num_bits = 0;
+	while (num >> num_bits != 0)
 		++num_bits;
-	unsigned int i = 0;
-	unsigned int j = 0;
-	while (i < num_bits)
+	return (num_bits);
+}
+
+void	radix_sort(t_ps *ps)
+{
+	unsigned int	i;
+	unsigned int	j;
+	int				value;
+
+	i = 0;
+	j = 0;
+	while (i < get_num_bits(ps->max_a))
 	{
 		j = 0;
-		unsigned int size = ft_lstsize(ps->stack_a);
-		while (j < size)
+		while (j < ps->size_a)
 		{
-			int value = ft_lstlast(ps->stack_a)->rank;
+			value = ft_lstlast(ps->stack_a)->rank;
 			if (((value >> i) & 1) == 0)
 				pb(ps);
 			else
@@ -60,7 +73,6 @@ void radix_sort(t_ps *ps)
 			pa(ps);
 		i++;
 	}
-
 }
 
 void	push_swap(t_ps *ps)

@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/01 16:39:35 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/17 14:45:43 by omaly            ###   ########.fr       */
+/*   Created: 2025/09/17 20:59:50 by omaly             #+#    #+#             */
+/*   Updated: 2025/09/17 21:09:02 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/libft.h"
 
-void	free_stack(t_list *stack)
+size_t	ft_strlen(const char *s)
 {
-	t_list	*prev;
-	t_list	*curr;
+	size_t			len;
+	unsigned int	i;
 
-	prev = stack;
-	curr = stack;
-	while (prev)
+	len = 0;
+	i = 0;
+	while (s && s[i] != '\0')
 	{
-		curr = prev->next;
-		free(prev);
-		prev = curr;
+		len++;
+		i++;
 	}
-}
-
-void	free_ps(t_ps *ps)
-{
-	free_stack(ps->stack_a);
-	free_stack(ps->stack_b);
+	return (len);
 }

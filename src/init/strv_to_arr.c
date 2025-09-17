@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   strv_to_arr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/16 17:26:00 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/16 17:26:14 by omaly            ###   ########.fr       */
+/*   Created: 2025/09/17 16:56:50 by omaly             #+#    #+#             */
+/*   Updated: 2025/09/17 19:11:47 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int *parse_args(int argc, char **argv)
+int	*strv_to_arr(char **strv, int count)
 {
-	if (argc < 1 || !argv)
-		return NULL;
-	int *res = malloc(sizeof(int) * argc - 1);
+	int				*res;
+	int	i;
+
+	if (count < 1 || !strv)
+		return (NULL);
+	res = malloc(sizeof(int) * count);
 	if (!res)
-		return NULL;
-	int i = 0;
-	while (i < argc - 1)
+		return (NULL);
+	i = 0;
+	while (i < count)
 	{
-		res[i] = ft_atoi(argv[i + 1]);
+		res[i] = ft_atoi(strv[count - i]);
 		i++;
 	}
-	return res;
+	return (res);
 }

@@ -6,16 +6,11 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 11:14:46 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/16 17:34:10 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/17 21:03:15 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	is_digit(int c)
-{
-	if ('0' <= c && c <= '9')
-		return (1);
-	return (0);
-}
+#include "../../includes/push_swap.h"
 
 int	is_sign(char c)
 {
@@ -27,6 +22,7 @@ int	is_whitespace(char c)
 	return (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
 		|| c == ' ');
 }
+
 int	ft_atoi(const char *s)
 {
 	unsigned int	i;
@@ -46,7 +42,7 @@ int	ft_atoi(const char *s)
 			minus = 1;
 		i++;
 	}
-	while (is_digit(s[i]))
+	while (ft_isdigit(s[i]))
 		ret = ret * 10 + (s[i++] - '0');
 	if (minus)
 		return (-ret);
@@ -55,7 +51,7 @@ int	ft_atoi(const char *s)
 
 int	is_zero(const char *s)
 {
-	unsigned int i;
+	unsigned int	i;
 
 	if (!s)
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 12:36:45 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/15 15:57:53 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/17 14:55:18 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,13 @@ void	sa(t_ps *ps)
 	swap(&(ps->stack_a));
 	write(1, "sa\n", 3);
 }
+
 void	sb(t_ps *ps)
 {
 	swap(&(ps->stack_b));
 	write(1, "sb\n", 3);
 }
+
 void	ss(t_ps *ps)
 {
 	swap(&(ps->stack_a));

@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   arr_to_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/01 16:39:35 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/17 14:45:43 by omaly            ###   ########.fr       */
+/*   Created: 2025/09/17 16:57:07 by omaly             #+#    #+#             */
+/*   Updated: 2025/09/17 16:57:35 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	free_stack(t_list *stack)
+t_list	*arr_to_list(unsigned int *arr, size_t size)
 {
-	t_list	*prev;
-	t_list	*curr;
+	unsigned int	i;
+	int				rank;
+	t_list			*head;
+	t_list			*new;
 
-	prev = stack;
-	curr = stack;
-	while (prev)
+	if (!arr)
+		return (NULL);
+	i = 0;
+	rank = arr[i];
+	i++;
+	head = ft_lstnew(rank);
+	while (i < size)
 	{
-		curr = prev->next;
-		free(prev);
-		prev = curr;
+		rank = arr[i];
+		new = ft_lstnew(rank);
+		ft_lstadd_back(&head, new);
+		i++;
 	}
-}
-
-void	free_ps(t_ps *ps)
-{
-	free_stack(ps->stack_a);
-	free_stack(ps->stack_b);
+	return (head);
 }

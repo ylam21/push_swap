@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:34:00 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/15 15:52:39 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/17 14:46:05 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,21 @@ void	reverse_rotate(t_list **stack)
 	curr->next->next = NULL;
 }
 
-void rra(t_ps *ps)
+void	rra(t_ps *ps)
 {
 	reverse_rotate(&(ps->stack_a));
-	write(1,"rra\n",4);
+	write(1, "rra\n", 4);
 }
 
-void rrb(t_ps *ps)
+void	rrb(t_ps *ps)
 {
 	reverse_rotate(&(ps->stack_a));
-	write(1,"rrb\n",4);
+	write(1, "rrb\n", 4);
 }
 
-void rrr(t_ps *ps)
+void	rrr(t_ps *ps)
 {
 	reverse_rotate(&(ps->stack_a));
 	reverse_rotate(&(ps->stack_b));
-	write(1,"rrr\n",4);
+	write(1, "rrr\n", 4);
 }
