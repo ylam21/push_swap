@@ -1,47 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/01 16:39:35 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/19 16:38:52 by omaly            ###   ########.fr       */
+/*   Created: 2025/06/03 15:36:16 by omaly             #+#    #+#             */
+/*   Updated: 2025/06/04 20:51:55 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "libft.h"
 
-void	free_stack(t_list *stack)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	t_list	*tmp;
+	char	*_src;
+	size_t	len;
 
-	while (stack)
+	_src = (char *)src;
+	len = 0;
+	if (size > 0)
 	{
-		tmp = stack->next;
-		free(stack->content);
-		free(stack);
-		stack = tmp;
+		while (len < size - 1 && *src)
+		{
+			*dst++ = *src++;
+			len++;
+		}
+		*dst = 0;
 	}
-}
-
-void	free_ps(t_ps *ps)
-{
-	free_stack(ps->stack_a);
-	free_stack(ps->stack_b);
-}
-
-void	free_split(char **split)
-{
-	size_t	i;
-
-	i = 0;
-	if (!split)
-		return ;
-	while (split[i])
-	{
-		free(split[i]);
-		i++;
-	}
-	free(split);
+	len = ft_strlen(_src);
+	return (len);
 }

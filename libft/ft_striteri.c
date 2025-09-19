@@ -1,47 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/01 16:39:35 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/19 16:38:52 by omaly            ###   ########.fr       */
+/*   Created: 2025/06/03 15:35:40 by omaly             #+#    #+#             */
+/*   Updated: 2025/06/03 15:35:42 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
-
-void	free_stack(t_list *stack)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	t_list	*tmp;
+	unsigned int	index;
 
-	while (stack)
-	{
-		tmp = stack->next;
-		free(stack->content);
-		free(stack);
-		stack = tmp;
-	}
-}
-
-void	free_ps(t_ps *ps)
-{
-	free_stack(ps->stack_a);
-	free_stack(ps->stack_b);
-}
-
-void	free_split(char **split)
-{
-	size_t	i;
-
-	i = 0;
-	if (!split)
-		return ;
-	while (split[i])
-	{
-		free(split[i]);
-		i++;
-	}
-	free(split);
+	index = 0;
+	while (f && s && *s)
+		f(index++, s++);
 }

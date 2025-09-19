@@ -1,47 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/01 16:39:35 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/19 16:38:52 by omaly            ###   ########.fr       */
+/*   Created: 2025/06/03 15:37:12 by omaly             #+#    #+#             */
+/*   Updated: 2025/06/04 19:20:14 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "libft.h"
 
-void	free_stack(t_list *stack)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 {
-	t_list	*tmp;
-
-	while (stack)
-	{
-		tmp = stack->next;
-		free(stack->content);
-		free(stack);
-		stack = tmp;
-	}
-}
-
-void	free_ps(t_ps *ps)
-{
-	free_stack(ps->stack_a);
-	free_stack(ps->stack_b);
-}
-
-void	free_split(char **split)
-{
+	size_t	needle_len;
 	size_t	i;
 
+	if (!haystack || !needle)
+		return (NULL);
+	needle_len = ft_strlen(needle);
+	if (needle_len > n)
+		return (NULL);
+	if (needle_len == 0)
+		return ((char *)(haystack));
 	i = 0;
-	if (!split)
-		return ;
-	while (split[i])
+	while (haystack[i] != '\0' && (i + needle_len) <= n)
 	{
-		free(split[i]);
+		if (ft_strncmp(haystack + i, needle, needle_len) == 0)
+			return ((char *)(haystack + i));
 		i++;
 	}
-	free(split);
+	return (NULL);
 }

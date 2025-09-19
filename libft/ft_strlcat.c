@@ -1,47 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/01 16:39:35 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/19 16:38:52 by omaly            ###   ########.fr       */
+/*   Created: 2025/06/03 15:36:01 by omaly             #+#    #+#             */
+/*   Updated: 2025/06/03 15:36:11 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "libft.h"
 
-void	free_stack(t_list *stack)
+size_t	ft_strlen(const char *s);
+
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	t_list	*tmp;
-
-	while (stack)
-	{
-		tmp = stack->next;
-		free(stack->content);
-		free(stack);
-		stack = tmp;
-	}
-}
-
-void	free_ps(t_ps *ps)
-{
-	free_stack(ps->stack_a);
-	free_stack(ps->stack_b);
-}
-
-void	free_split(char **split)
-{
+	size_t	dst_len;
+	size_t	src_len;
 	size_t	i;
 
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	if (size <= dst_len)
+		return (src_len + size);
 	i = 0;
-	if (!split)
-		return ;
-	while (split[i])
+	while (src[i] && (dst_len + i < size - 1))
 	{
-		free(split[i]);
+		dst[dst_len + i] = src[i];
 		i++;
 	}
-	free(split);
+	dst[dst_len + i] = 0;
+	return (dst_len + src_len);
 }

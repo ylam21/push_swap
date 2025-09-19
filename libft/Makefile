@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: omaly <omaly@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/09/17 20:52:03 by omaly             #+#    #+#              #
-#    Updated: 2025/09/17 21:36:20 by omaly            ###   ########.fr        #
+#    Created: 2025/09/19 10:58:32 by omaly             #+#    #+#              #
+#    Updated: 2025/09/19 11:43:19 by omaly            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,42 +21,80 @@ CFLAGS := -Wall -Wextra -Werror
 RM := rm -rf
 
 # Directories
-SOURCE_DIR = src
-OBJECT_DIR = obj
+SRC_DIR = ./
+BONUS_DIR = ./
+OBJ_DIR = objs
 
-# Source files
-SOURCE_FILES =	$(SOURCE_DIR)/ft_split.c \
-				$(SOURCE_DIR)/ft_strlcpy.c \
-				$(SOURCE_DIR)/ft_strlen.c \
-				$(SOURCE_DIR)/ft_memset.c \
-				$(SOURCE_DIR)/ft_strncmp.c \
-				$(SOURCE_DIR)/ft_lstsize.c \
-				$(SOURCE_DIR)/ft_lstnew.c \
-				$(SOURCE_DIR)/ft_lstlast.c \
-				$(SOURCE_DIR)/ft_lstadd_back.c \
-				$(SOURCE_DIR)/ft_isdigit.c
+SRC = ft_isalpha \
+	ft_memset \
+	ft_bzero \
+	ft_memcpy \
+	ft_memmove \
+	ft_memchr \
+	ft_memcmp \
+	ft_strlen \
+	ft_isdigit \
+	ft_isalnum \
+	ft_isascii \
+	ft_isprint \
+	ft_strlcpy \
+	ft_strlcat \
+	ft_toupper \
+	ft_tolower \
+	ft_strchr \
+	ft_strrchr \
+	ft_strncmp \
+	ft_strnstr \
+	ft_atoi \
+	ft_itoa \
+	ft_calloc \
+	ft_strdup \
+	ft_split \
+	ft_substr \
+	ft_strjoin \
+	ft_strtrim \
+	ft_strmapi \
+	ft_striteri \
+	ft_putchar_fd \
+	ft_putstr_fd \
+	ft_putendl_fd \
+	ft_putnbr_fd
 
-# Object files
-OBJECT_FILES := $(patsubst $(SOURCE_DIR)/%.c,$(OBJECT_DIR)/%.o,$(SOURCE_FILES))
+BONUS_SRC = ft_lstnew_bonus \
+	ft_lstadd_front_bonus \
+	ft_lstsize_bonus \
+	ft_lstlast_bonus \
+	ft_lstadd_back_bonus \
+	ft_lstdelone_bonus \
+	ft_lstclear_bonus \
+	ft_lstiter_bonus \
+	ft_lstmap_bonus
+
+SRCS = $(addprefix $(SRC_DIR)/, $(addsuffix .c, $(SRC)))
+BONUS_SRCS = $(addprefix $(BONUS_DIR)/, $(addsuffix .c, $(BONUS_SRC)))
+OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+BONUS_OBJS = $(BONUS_SRCS:$(BONUS_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJECT_FILES)
-	ar rcs $(NAME) $(OBJECT_FILES)
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
-# Create object files
-$(OBJECT_DIR)/%.o: $(SOURCE_DIR)/%.c|$(OBJECT_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -I . -c $< -o $@
 
-$(OBJECT_DIR):
-	mkdir -p $(OBJECT_DIR)
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
+
+bonus: $(OBJS) $(BONUS_OBJS)
+	ar rcs $(NAME) $(BONUS_OBJS)
 
 clean:
-	$(RM) $(OBJECT_FILES) $(OBJECT_DIR)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	$(RM) $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY = NAME all clean fclean
+.PHONY: all clean fclean re bonus

@@ -1,4 +1,4 @@
-./push_swap
+push_swap
 .vscode
-./obj/
-./checker_linux
+obj/
+checker_linux

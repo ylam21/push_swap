@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strv_to_arr.c                                      :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 16:56:50 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/17 21:38:40 by omaly            ###   ########.fr       */
+/*   Created: 2025/06/03 15:36:54 by omaly             #+#    #+#             */
+/*   Updated: 2025/06/04 19:11:30 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "libft.h"
 
-int	*strv_to_arr(char **strv, int count)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	*res;
-	int	i;
-
-	if (count < 1 || !strv)
-		return (NULL);
-	res = malloc(sizeof(int) * count);
-	if (!res)
-		return (NULL);
-	i = 0;
-	while (i < count)
+	if (n == 0)
+		return (0);
+	while (s1 && (*s1 == *s2) && --n)
 	{
-		res[i] = ft_atoi(strv[count - i]);
-		i++;
+		s1++;
+		s2++;
 	}
-	return (res);
+	return ((unsigned char)*s1 - (unsigned char)*s2);
 }

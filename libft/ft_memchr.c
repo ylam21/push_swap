@@ -1,47 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/01 16:39:35 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/19 16:38:52 by omaly            ###   ########.fr       */
+/*   Created: 2025/06/03 15:30:11 by omaly             #+#    #+#             */
+/*   Updated: 2025/06/03 15:38:39 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "libft.h"
 
-void	free_stack(t_list *stack)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	t_list	*tmp;
+	unsigned char	*_s;
 
-	while (stack)
+	_s = (unsigned char *)s;
+	while (n--)
 	{
-		tmp = stack->next;
-		free(stack->content);
-		free(stack);
-		stack = tmp;
+		if (*_s++ == (unsigned char)c)
+			return (--_s);
 	}
-}
-
-void	free_ps(t_ps *ps)
-{
-	free_stack(ps->stack_a);
-	free_stack(ps->stack_b);
-}
-
-void	free_split(char **split)
-{
-	size_t	i;
-
-	i = 0;
-	if (!split)
-		return ;
-	while (split[i])
-	{
-		free(split[i]);
-		i++;
-	}
-	free(split);
+	return (NULL);
 }

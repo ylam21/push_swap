@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 20:58:56 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/17 21:38:12 by omaly            ###   ########.fr       */
+/*   Created: 2025/06/03 15:30:38 by omaly             #+#    #+#             */
+/*   Updated: 2025/06/03 15:30:47 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	char	*_src;
-	size_t	len;
+	unsigned char	*_dest;
+	unsigned char	*_src;
 
-	_src = (char *)src;
-	len = 0;
-	if (size > 0)
+	_dest = (unsigned char *)dest;
+	_src = (unsigned char *)src;
+	while (n--)
 	{
-		while (len < size - 1 && *src)
-		{
-			*dest++ = *src++;
-			len++;
-		}
-		*dest = 0;
+		*_dest++ = *_src++;
 	}
-	len = ft_strlen(_src);
-	return (len);
+	return (dest);
 }

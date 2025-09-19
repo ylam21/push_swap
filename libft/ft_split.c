@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 20:49:10 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/17 21:38:19 by omaly            ###   ########.fr       */
+/*   Created: 2025/06/03 15:34:37 by omaly             #+#    #+#             */
+/*   Updated: 2025/06/06 13:26:16 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 static void	ft_freearr(char **s, size_t size)
 {

@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:26:55 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/17 21:25:26 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/19 15:02:37 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,26 @@
 
 void	sort_3(t_ps *ps)
 {
-	int		min;
-	int		max;
 	t_list	*tail;
 
-	min = get_min(ps->stack_a);
-	max = get_max(ps->stack_a);
 	tail = ft_lstlast(ps->stack_a);
-	if (min == ps->stack_a->content && max == ft_lstlast(ps->stack_a)->content)
+	if (0 == *(unsigned int *)(ps->stack_a->content)
+		&& ps->max_a == *(unsigned int *)(ft_lstlast(ps->stack_a)->content))
 	{
 		sa(ps);
 		rra(ps);
 	}
-	else if (min != ps->stack_a->content && max == tail->content)
+	else if (0 != *(unsigned int *)ps->stack_a->content
+		&& ps->max_a == *(unsigned int *)tail->content)
 		ra(ps);
-	else if (min == ps->stack_a->content && max != tail->content)
+	else if (0 == *(unsigned int *)ps->stack_a->content
+		&& ps->max_a != *(unsigned int *)tail->content)
 		rra(ps);
-	else if (max == ps->stack_a->content && min != tail->content)
+	else if (ps->max_a == *(unsigned int *)ps->stack_a->content
+		&& 0 != *(unsigned int *)tail->content)
 		sa(ps);
-	else if (max != ps->stack_a->content && min == tail->content)
+	else if (ps->max_a != *(unsigned int *)ps->stack_a->content
+		&& 0 == *(unsigned int *)tail->content)
 	{
 		sa(ps);
 		ra(ps);
@@ -62,7 +63,7 @@ void	radix_sort(t_ps *ps)
 		j = 0;
 		while (j < ps->size_a)
 		{
-			value = ft_lstlast(ps->stack_a)->content;
+			value = *(int *)(ft_lstlast(ps->stack_a)->content);
 			if (((value >> i) & 1) == 0)
 				pb(ps);
 			else

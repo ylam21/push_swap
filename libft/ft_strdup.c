@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 21:27:33 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/17 21:27:47 by omaly            ###   ########.fr       */
+/*   Created: 2025/06/03 15:35:24 by omaly             #+#    #+#             */
+/*   Updated: 2025/06/04 20:50:50 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *newlst)
+size_t	ft_strlen(const char *s);
+
+char	*ft_strdup(const char *s)
 {
-	t_list	*last;
+	size_t	len;
+	char	*dup;
+	int		i;
 
-	if (!lst || !*lst)
-		return ;
-	if (!*lst)
+	len = ft_strlen(s);
+	dup = (char *)malloc(sizeof(char) * (len + 1));
+	if (!dup)
+		return (NULL);
+	i = 0;
+	while (s && s[i] != '\0')
 	{
-		*lst = newlst;
-		return ;
+		dup[i] = s[i];
+		i++;
 	}
-	last = ft_lstlast(*lst);
-	last->next = newlst;
+	dup[i] = '\0';
+	return (dup);
 }

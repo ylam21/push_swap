@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 21:26:43 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/17 21:26:56 by omaly            ###   ########.fr       */
+/*   Created: 2025/06/03 15:27:56 by omaly             #+#    #+#             */
+/*   Updated: 2025/06/03 15:28:06 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	ft_bzero(void *s, size_t n)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+	unsigned char	*_s;
+
+	_s = (unsigned char *)s;
+	while (_s && n--)
+	{
+		*_s++ = 0;
+	}
 }

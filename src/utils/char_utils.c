@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 11:14:46 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/17 21:36:53 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/19 17:35:58 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,6 @@ int	is_zero(const char *s)
 	if (s[i] == '0' && s[i + 1] == '\0')
 		return (1);
 	return (0);
-}
-
-int	get_strv_len(char **strv)
-{
-	int	len;
-	int	i;
-
-	len = 0;
-	i = 0;
-	while (strv[i] != NULL)
-	{
-		i++;
-		len++;
-	}
-	return (len);
 }
 
 int	is_sign(char c)

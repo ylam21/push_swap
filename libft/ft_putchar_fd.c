@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 21:23:32 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/17 21:23:48 by omaly            ###   ########.fr       */
+/*   Created: 2025/06/03 15:33:05 by omaly             #+#    #+#             */
+/*   Updated: 2025/06/03 15:33:10 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-t_list	*ft_lstnew(int value)
+void	ft_putchar_fd(char c, int fd)
 {
-	t_list	*lst;
-
-	lst = malloc(sizeof(t_list));
-	if (!lst)
-		return (NULL);
-	lst->content = value;
-	lst->next = NULL;
-	return (lst);
+	write(fd, &c, 1);
 }

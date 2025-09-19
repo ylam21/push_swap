@@ -1,47 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/01 16:39:35 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/19 16:38:52 by omaly            ###   ########.fr       */
+/*   Created: 2025/06/03 15:37:16 by omaly             #+#    #+#             */
+/*   Updated: 2025/06/03 15:37:28 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "libft.h"
 
-void	free_stack(t_list *stack)
+char	*ft_strrchr(const char *s, int c)
 {
-	t_list	*tmp;
+	char	*_s;
 
-	while (stack)
+	_s = NULL;
+	if (c == 0 && *s == 0)
+		return ((char *)s);
+	while (s && *s != 0)
 	{
-		tmp = stack->next;
-		free(stack->content);
-		free(stack);
-		stack = tmp;
+		if (*s == (char)c)
+		{
+			_s = (char *)s;
+		}
+		s++;
 	}
-}
-
-void	free_ps(t_ps *ps)
-{
-	free_stack(ps->stack_a);
-	free_stack(ps->stack_b);
-}
-
-void	free_split(char **split)
-{
-	size_t	i;
-
-	i = 0;
-	if (!split)
-		return ;
-	while (split[i])
-	{
-		free(split[i]);
-		i++;
-	}
-	free(split);
+	if (c == 0)
+		return ((char *)s);
+	return (_s);
 }

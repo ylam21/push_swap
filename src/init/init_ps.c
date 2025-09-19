@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:24:00 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/17 21:37:34 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/19 17:32:43 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,31 @@
 
 t_list	*build_stack(int argc, char **argv)
 {
-	unsigned int	count;
-	int				*raw;
-	unsigned int	*ranked;
-	char			**strv;
+	int				allocated;
+	char			**tokens;
+	t_list			*stack;
+	unsigned int	offset;
 
-	strv = NULL;
-	count = 0;
+	offset = 0;
+	stack = NULL;
+	tokens = NULL;
+	allocated = 0;
 	if (argc == 2)
 	{
-		strv = ft_split(argv[1], ' ');
-		count = get_strv_len(strv);
+		tokens = ft_split(argv[1], ' ');
+		allocated = 1;
 	}
-	else if (argc > 2)
+	else
 	{
-		strv = argv;
-		count = argc - 1;
+		tokens = argv;
+		offset = 1;
 	}
-	raw = strv_to_arr(strv, count);
-	ranked = get_ranked_arr(raw, count);
-	return (arr_to_list(ranked, count));
+	if (!tokens)
+		return (NULL);
+	stack = tokens_to_lst(tokens, offset);
+	if (allocated)
+		free_split(tokens);
+	return (stack);
 }
 
 int	init_ps(t_ps *ps, int argc, char **argv)
