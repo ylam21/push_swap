@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 15:38:50 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/19 12:25:04 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/19 19:19:54 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ char				*ft_strnstr(const char *haystack, const char *needle,
 int					ft_atoi(const char *s);
 char				*ft_itoa(int num);
 void				*ft_calloc(size_t num, size_t size);
+void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 char				*ft_strdup(const char *s);
 char				**ft_split(char const *s, char c);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
@@ -58,12 +59,14 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
-void				ft_striteri(char *s, void (*f)(unsigned int, char *));
+void				ft_lstiter(t_list *lst, void (*f)(void *));
 void				ft_lstadd_back(t_list **lst, t_list *newlst);
+void				ft_lstadd_front(t_list **lst, t_list *newlst);
 t_list				*ft_lstlast(t_list *lst);
-unsigned int		ft_lstsize(t_list *lst);
+int					ft_lstsize(t_list *lst);
 t_list				*ft_lstnew(void *content);
+t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
+						void (*del)(void *));
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
-
 #endif

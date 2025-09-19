@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/19 11:25:44 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/19 11:42:50 by omaly            ###   ########.fr       */
+/*   Created: 2025/09/17 21:20:37 by omaly             #+#    #+#             */
+/*   Updated: 2025/09/19 19:08:35 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+int	ft_lstsize(t_list *lst)
 {
-	while (f && lst)
+	int	size;
+
+	size = 0;
+	if (!lst)
+		return (size);
+	while (lst)
 	{
-		f(lst);
+		size++;
 		lst = lst->next;
 	}
+	return (size);
 }

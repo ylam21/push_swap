@@ -6,7 +6,7 @@
 #    By: omaly <omaly@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/19 10:58:32 by omaly             #+#    #+#              #
-#    Updated: 2025/09/19 11:43:19 by omaly            ###   ########.fr        #
+#    Updated: 2025/09/19 19:04:50 by omaly            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,15 +60,15 @@ SRC = ft_isalpha \
 	ft_putendl_fd \
 	ft_putnbr_fd
 
-BONUS_SRC = ft_lstnew_bonus \
-	ft_lstadd_front_bonus \
-	ft_lstsize_bonus \
-	ft_lstlast_bonus \
-	ft_lstadd_back_bonus \
-	ft_lstdelone_bonus \
-	ft_lstclear_bonus \
-	ft_lstiter_bonus \
-	ft_lstmap_bonus
+BONUS_SRC = ft_lstnew \
+	ft_lstadd_front \
+	ft_lstsize \
+	ft_lstlast \
+	ft_lstadd_back \
+	ft_lstdelone \
+	ft_lstclear \
+	ft_lstiter \
+	ft_lstmap
 
 SRCS = $(addprefix $(SRC_DIR)/, $(addsuffix .c, $(SRC)))
 BONUS_SRCS = $(addprefix $(BONUS_DIR)/, $(addsuffix .c, $(BONUS_SRC)))

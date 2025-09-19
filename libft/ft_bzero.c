@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 15:27:56 by omaly             #+#    #+#             */
-/*   Updated: 2025/06/03 15:28:06 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/19 18:16:31 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,13 @@
 void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*_s;
+	size_t			i;
 
 	_s = (unsigned char *)s;
-	while (_s && n--)
+	i = 0;
+	while (_s && i < n)
 	{
 		*_s++ = 0;
+		i++;
 	}
 }

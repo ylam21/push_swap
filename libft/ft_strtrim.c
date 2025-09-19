@@ -6,37 +6,13 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 15:37:34 by omaly             #+#    #+#             */
-/*   Updated: 2025/06/03 15:37:35 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/19 18:14:13 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// static int ft_getendidx(const char *s,const char *set) {
-//	if (!s || !set)
-//		return (-1);
-//
-//	int pos = ft_strlen(s) - 1;
-//
-//	while (0 <= pos && ft_isset(set, s[pos]))
-//		pos--;
-//
-//	return (pos);
-//}
-//
-// static int ft_getboundidx(const char *s,const char *set) {
-//	int pos = 0;
-//
-//	if (!s || !set)
-//		return (-1);
-//
-//	while (s[pos] != '\0' && ft_isset(set,s[pos]))
-//		pos++;
-//
-//	return (pos);
-//}
-
-static int	ft_isset(const char *set, char c)
+int	ft_isset(const char *set, char c)
 {
 	while (set && *set)
 	{
@@ -47,7 +23,7 @@ static int	ft_isset(const char *set, char c)
 	return (0);
 }
 
-static int	ft_getbound(const char *s, const char *set, int start)
+int	ft_getbound(const char *s, const char *set, int start)
 {
 	int	pos;
 

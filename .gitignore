@@ -1,4 +1,9 @@
+# bin
 push_swap
-.vscode
+# objs
 obj/
+# tests
+libft/libft-war-machine/
 checker_linux
+
+.vscode

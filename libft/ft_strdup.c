@@ -6,13 +6,11 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 15:35:24 by omaly             #+#    #+#             */
-/*   Updated: 2025/06/04 20:50:50 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/19 18:11:39 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(const char *s);
 
 char	*ft_strdup(const char *s)
 {

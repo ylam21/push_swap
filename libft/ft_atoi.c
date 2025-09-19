@@ -6,11 +6,11 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 15:01:11 by omaly             #+#    #+#             */
-/*   Updated: 2025/06/03 15:26:59 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/19 18:05:36 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_isdigit(int c);
+#include "libft.h"
 
 static int	ft_isspace(char c)
 {

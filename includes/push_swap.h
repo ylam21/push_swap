@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:00:24 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/19 17:36:24 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/19 17:41:48 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ typedef struct s_ps
 void				push_swap(t_ps *ps);
 // init_ps
 int					init_ps(t_ps *ps, int argc, char **argv);
-t_list				*build_stack(int argc, char **argv);
 t_list				*tokens_to_lst(char **tokens, unsigned int offset);
 unsigned int		*get_ranked_arr(int *arr, size_t size);
 // Debug

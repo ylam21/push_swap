@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 11:24:19 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/19 11:24:46 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/19 18:51:21 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (!(lst && new))
+	if (!lst || !new)
 		return ;
 	new->next = *lst;
 	*lst = new;

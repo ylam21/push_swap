@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 21:20:37 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/19 11:24:18 by omaly            ###   ########.fr       */
+/*   Created: 2025/09/19 11:25:21 by omaly             #+#    #+#             */
+/*   Updated: 2025/09/19 18:50:37 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_lstsize(t_list *lst)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	int	size;
-
-	size = 0;
-	if (!lst)
-		return (size);
-	while (lst)
+	if (!del)
+		return ;
+	if (lst)
 	{
-		size++;
-		lst = lst->next;
+		del(lst->content);
+		free(lst);
 	}
-	return (size);
 }
