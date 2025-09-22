@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:57:07 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/19 17:31:59 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/22 17:29:52 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	*tokens_to_arr(char **tokens, size_t count, unsigned int offset)
 {
 	int				*arr;
 	unsigned int	i;
+	int				n;
 
 	if (!tokens)
 		return (NULL);
@@ -57,7 +58,9 @@ int	*tokens_to_arr(char **tokens, size_t count, unsigned int offset)
 	i = 0;
 	while (i < count - offset)
 	{
-		arr[i] = ft_atoi(tokens[i + offset]);
+		if (ps_atoi(tokens[i + offset], &n) != 0)
+			return (NULL);
+		arr[i] = n;
 		i++;
 	}
 	return (arr);

@@ -6,7 +6,7 @@
 #    By: omaly <omaly@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/20 10:34:09 by omaly             #+#    #+#              #
-#    Updated: 2025/09/19 17:28:49 by omaly            ###   ########.fr        #
+#    Updated: 2025/09/22 16:57:57 by omaly            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,9 +38,9 @@ SOURCE_FILES =	$(SOURCE_DIR)/push_swap.c \
 				$(SOURCE_DIR)/ops/rotate.c \
 				$(SOURCE_DIR)/ops/swap.c \
 				$(SOURCE_DIR)/utils/error.c \
-				$(SOURCE_DIR)/utils/debug.c \
-				$(SOURCE_DIR)/utils/free.c \
 				$(SOURCE_DIR)/utils/char_utils.c \
+				$(SOURCE_DIR)/utils/free.c \
+				$(SOURCE_DIR)/utils/ps_atoi.c \
 				$(SOURCE_DIR)/utils/stack_utils.c
 
 # Object files

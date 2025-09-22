@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:00:24 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/19 17:41:48 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/22 17:30:07 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
+# include <limits.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -30,10 +31,7 @@ void				push_swap(t_ps *ps);
 int					init_ps(t_ps *ps, int argc, char **argv);
 t_list				*tokens_to_lst(char **tokens, unsigned int offset);
 unsigned int		*get_ranked_arr(int *arr, size_t size);
-// Debug
-void				print_stack(t_list *stack);
-void				print_array(int *arr, size_t n);
-void				print_uarray(unsigned int *arr, size_t n);
+// Error
 void				print_error(int fd);
 // Operations
 void				pa(t_ps *ps);
@@ -53,10 +51,10 @@ int					validate_args(int argc, char **argv);
 void				free_split(char **split);
 void				free_ps(t_ps *ps);
 // Utilities
-int					is_whitespace(char c);
-int					is_sign(char c);
+int					ps_atoi(const char *s, int *out);
 int					is_descending(t_list *lst);
 int					get_max(t_list *stack);
-int					get_min(t_list *stack);
-int					is_zero(const char *s);
+// char_utils
+int					is_sign(char c);
+int					is_whitespace(char c);
 #endif

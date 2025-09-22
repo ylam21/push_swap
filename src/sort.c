@@ -6,34 +6,59 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:26:55 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/19 15:02:37 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/22 17:31:06 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+// void	sort_3(t_ps *ps)
+// {
+// 	t_list	*tail;
+
+// 	tail = ft_lstlast(ps->stack_a);
+// 	if (0 == *(unsigned int *)(ps->stack_a->content)
+// 		&& ps->max_a == *(unsigned int *)(ft_lstlast(ps->stack_a)->content))
+// 	{
+// 		sa(ps);
+// 		rra(ps);
+// 	}
+// 	else if (0 != *(unsigned int *)ps->stack_a->content
+// 		&& ps->max_a == *(unsigned int *)tail->content)
+// 		ra(ps);
+// 	else if (0 == *(unsigned int *)ps->stack_a->content
+// 		&& ps->max_a != *(unsigned int *)tail->content)
+// 		rra(ps);
+// 	else if (ps->max_a == *(unsigned int *)ps->stack_a->content
+// 		&& 0 != *(unsigned int *)tail->content)
+// 		sa(ps);
+// 	else if (ps->max_a != *(unsigned int *)ps->stack_a->content
+// 		&& 0 == *(unsigned int *)tail->content)
+// 	{
+// 		sa(ps);
+// 		ra(ps);
+// 	}
+// }
+
 void	sort_3(t_ps *ps)
 {
-	t_list	*tail;
+	unsigned int	head;
+	unsigned int	tail;
 
-	tail = ft_lstlast(ps->stack_a);
-	if (0 == *(unsigned int *)(ps->stack_a->content)
-		&& ps->max_a == *(unsigned int *)(ft_lstlast(ps->stack_a)->content))
+	head = *(unsigned int *)ps->stack_a->content;
+	tail = *(unsigned int *)(ft_lstlast(ps->stack_a)->content);
+	if (0 == head && ps->max_a == tail)
 	{
 		sa(ps);
 		rra(ps);
 	}
-	else if (0 != *(unsigned int *)ps->stack_a->content
-		&& ps->max_a == *(unsigned int *)tail->content)
+	else if (0 != head && ps->max_a == tail)
 		ra(ps);
-	else if (0 == *(unsigned int *)ps->stack_a->content
-		&& ps->max_a != *(unsigned int *)tail->content)
+	else if (0 == head && ps->max_a != tail)
 		rra(ps);
-	else if (ps->max_a == *(unsigned int *)ps->stack_a->content
-		&& 0 != *(unsigned int *)tail->content)
+	else if (ps->max_a == head && 0 != tail)
 		sa(ps);
-	else if (ps->max_a != *(unsigned int *)ps->stack_a->content
-		&& 0 == *(unsigned int *)tail->content)
+	else if (ps->max_a != head && 0 == tail)
 	{
 		sa(ps);
 		ra(ps);

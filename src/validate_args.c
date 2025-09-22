@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:33:48 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/19 15:02:11 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/22 17:43:24 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,21 @@ int	handle_argv(char **argv, size_t param_count, size_t start)
 {
 	size_t	i;
 	size_t	j;
+	int		i_value;
+	int		j_value;
 
 	i = start;
 	while (i < param_count)
 	{
-		if (is_zero(argv[i]) == 0 && ft_atoi(argv[i]) == 0)
+		if (ps_atoi(argv[i], &i_value) != 0)
 			return (1);
 		j = i + 1;
 		while (j < param_count)
 		{
-			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
+			if (ps_atoi(argv[j], &j_value) != 0)
 				return (2);
+			if (i_value == j_value)
+				return (3);
 			j++;
 		}
 		i++;
