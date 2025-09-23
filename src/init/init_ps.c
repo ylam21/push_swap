@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:24:00 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/22 17:44:37 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/23 15:03:53 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ t_list	*build_stack(int argc, char **argv)
 
 int	init_ps(t_ps *ps, int argc, char **argv)
 {
-	if (argc == 1)
-		return (0);
 	ps->stack_a = build_stack(argc, argv);
 	if (!ps->stack_a)
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:33:48 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/22 17:43:24 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/23 15:03:37 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,7 @@ int	validate_args(int argc, char **argv)
 	size_t	param_count;
 	int		res;
 
-	if (argc == 1)
-		return (0);
-	else if (argc == 2)
+	if (argc == 2)
 	{
 		params = ft_split(argv[1], ' ');
 		if (!params)
