@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:00:24 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/22 17:30:07 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/28 19:19:16 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ void				free_ps(t_ps *ps);
 int					ps_atoi(const char *s, int *out);
 int					is_descending(t_list *lst);
 int					get_max(t_list *stack);
-// char_utils
+void				print_stack(t_list *stack);
+int					get_target_pos(t_list *lst, unsigned int target);
+unsigned int		get_num_bits(unsigned int num);
 int					is_sign(char c);
 int					is_whitespace(char c);
 #endif

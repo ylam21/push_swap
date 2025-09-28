@@ -6,73 +6,82 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:26:55 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/22 17:31:06 by omaly            ###   ########.fr       */
+/*   Updated: 2025/09/28 19:17:35 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// void	sort_3(t_ps *ps)
-// {
-// 	t_list	*tail;
-
-// 	tail = ft_lstlast(ps->stack_a);
-// 	if (0 == *(unsigned int *)(ps->stack_a->content)
-// 		&& ps->max_a == *(unsigned int *)(ft_lstlast(ps->stack_a)->content))
-// 	{
-// 		sa(ps);
-// 		rra(ps);
-// 	}
-// 	else if (0 != *(unsigned int *)ps->stack_a->content
-// 		&& ps->max_a == *(unsigned int *)tail->content)
-// 		ra(ps);
-// 	else if (0 == *(unsigned int *)ps->stack_a->content
-// 		&& ps->max_a != *(unsigned int *)tail->content)
-// 		rra(ps);
-// 	else if (ps->max_a == *(unsigned int *)ps->stack_a->content
-// 		&& 0 != *(unsigned int *)tail->content)
-// 		sa(ps);
-// 	else if (ps->max_a != *(unsigned int *)ps->stack_a->content
-// 		&& 0 == *(unsigned int *)tail->content)
-// 	{
-// 		sa(ps);
-// 		ra(ps);
-// 	}
-// }
-
 void	sort_3(t_ps *ps)
 {
 	unsigned int	head;
 	unsigned int	tail;
+	unsigned int	max;
 
+	max = get_max(ps->stack_a);
 	head = *(unsigned int *)ps->stack_a->content;
-	tail = *(unsigned int *)(ft_lstlast(ps->stack_a)->content);
-	if (0 == head && ps->max_a == tail)
+	tail = *(unsigned int *)ft_lstlast(ps->stack_a)->content;
+	if (0 == head && max == tail)
 	{
 		sa(ps);
 		rra(ps);
 	}
-	else if (0 != head && ps->max_a == tail)
+	else if (0 != head && max == tail)
 		ra(ps);
-	else if (0 == head && ps->max_a != tail)
+	else if (0 == head && max != tail)
 		rra(ps);
-	else if (ps->max_a == head && 0 != tail)
+	else if (max == head && 0 != tail)
 		sa(ps);
-	else if (ps->max_a != head && 0 == tail)
+	else if (max != head && 0 == tail)
 	{
 		sa(ps);
 		ra(ps);
 	}
 }
 
-unsigned int	get_num_bits(unsigned int num)
+void	arrange_a_for_candidate(t_ps *ps, unsigned int candidate)
 {
-	unsigned int	num_bits;
+	unsigned int	target;
+	int				pos;
 
-	num_bits = 0;
-	while (num >> num_bits != 0)
-		++num_bits;
-	return (num_bits);
+	target = candidate + 1;
+	if (candidate == ps->max_a)
+		target = 0;
+	pos = get_target_pos(ps->stack_a, target);
+	if (pos < ft_lstsize(ps->stack_a) / 2)
+	{
+		while (pos >= 0)
+		{
+			rra(ps);
+			pos--;
+		}
+		return ;
+	}
+	else
+	{
+		while (pos < ft_lstsize(ps->stack_a) - 1)
+		{
+			ra(ps);
+			pos++;
+		}
+		return ;
+	}
+}
+
+void	sort_5(t_ps *ps)
+{
+	unsigned int	candidate;
+
+	pb(ps);
+	pb(ps);
+	sort_3(ps);
+	while (ps->stack_b)
+	{
+		candidate = *(unsigned int *)ft_lstlast(ps->stack_b)->content;
+		arrange_a_for_candidate(ps, candidate);
+		pa(ps);
+	}
+	arrange_a_for_candidate(ps, 4);
 }
 
 void	radix_sort(t_ps *ps)
@@ -109,6 +118,8 @@ void	push_swap(t_ps *ps)
 			return (ra(ps));
 		else if (ps->size_a == 3)
 			return (sort_3(ps));
+		else if (ps->size_a == 5)
+			return (sort_5(ps));
 		else
 			return (radix_sort(ps));
 	}
