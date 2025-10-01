@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   lst_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 10:30:01 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/28 19:18:04 by omaly            ###   ########.fr       */
+/*   Updated: 2025/10/01 13:16:17 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int	get_max(t_list *stack)
+int	get_max(t_list *lst)
 {
 	t_list	*curr;
 	int		max;
 
-	curr = stack;
+	curr = lst;
 	max = *(int *)curr->content;
 	while (curr)
 	{

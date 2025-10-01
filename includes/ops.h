@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ops.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/16 15:20:18 by omaly             #+#    #+#             */
-/*   Updated: 2025/10/01 13:12:26 by omaly            ###   ########.fr       */
+/*   Created: 2025/10/01 13:07:15 by omaly             #+#    #+#             */
+/*   Updated: 2025/10/01 13:32:17 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#ifndef OPS_H
+# define OPS_H
+# include "push_swap.h"
 
-void	print_error(int fd)
-{
-	write(fd, "Error\n", 6);
-}
+typedef struct s_ps	t_ps;
+void				pa(t_ps *ps);
+void				pb(t_ps *ps);
+void				rra(t_ps *ps);
+void				rrb(t_ps *ps);
+void				rrr(t_ps *ps);
+void				ra(t_ps *ps);
+void				rb(t_ps *ps);
+void				rr(t_ps *ps);
+void				sa(t_ps *ps);
+void				sb(t_ps *ps);
+void				ss(t_ps *ps);
+#endif

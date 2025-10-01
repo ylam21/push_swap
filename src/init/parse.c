@@ -6,16 +6,16 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:57:07 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/22 17:29:52 by omaly            ###   ########.fr       */
+/*   Updated: 2025/10/01 13:32:35 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	reverse_arr(int *arr, size_t size)
+void	reverse_arr(int *arr, int size)
 {
-	size_t	i;
-	int		tmp;
+	int	i;
+	int	tmp;
 
 	if (!arr)
 		return ;
@@ -29,10 +29,10 @@ void	reverse_arr(int *arr, size_t size)
 	}
 }
 
-size_t	count_tokens(char **tokens)
+int	count_tokens(char **tokens)
 {
-	size_t	count;
-	size_t	i;
+	int	count;
+	int	i;
 
 	count = 0;
 	i = 0;
@@ -44,7 +44,7 @@ size_t	count_tokens(char **tokens)
 	return (count);
 }
 
-int	*tokens_to_arr(char **tokens, size_t count, unsigned int offset)
+int	*tokens_to_arr(char **tokens, int count, unsigned int offset)
 {
 	int				*arr;
 	unsigned int	i;
@@ -66,9 +66,9 @@ int	*tokens_to_arr(char **tokens, size_t count, unsigned int offset)
 	return (arr);
 }
 
-t_list	*arr_to_lst(unsigned int *arr, size_t size)
+t_list	*arr_to_lst(unsigned int *arr, int size)
 {
-	size_t			i;
+	int				i;
 	unsigned int	*rank;
 	t_list			*lst;
 	t_list			*new;
@@ -97,7 +97,7 @@ t_list	*tokens_to_lst(char **tokens, unsigned int offset)
 	t_list			*lst;
 	int				*raw;
 	unsigned int	*ranked;
-	size_t			count;
+	int				count;
 
 	count = count_tokens(tokens);
 	raw = tokens_to_arr(tokens, count, offset);

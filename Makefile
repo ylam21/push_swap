@@ -6,7 +6,7 @@
 #    By: omaly <omaly@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/20 10:34:09 by omaly             #+#    #+#              #
-#    Updated: 2025/09/22 16:57:57 by omaly            ###   ########.fr        #
+#    Updated: 2025/10/01 13:25:15 by omaly            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ SOURCE_FILES =	$(SOURCE_DIR)/push_swap.c \
 				$(SOURCE_DIR)/utils/char_utils.c \
 				$(SOURCE_DIR)/utils/free.c \
 				$(SOURCE_DIR)/utils/ps_atoi.c \
-				$(SOURCE_DIR)/utils/stack_utils.c
+				$(SOURCE_DIR)/utils/lst_utils.c
 
 # Object files
 OBJECT_FILES := $(patsubst $(SOURCE_DIR)/%.c,$(OBJECT_DIR)/%.o,$(SOURCE_FILES))

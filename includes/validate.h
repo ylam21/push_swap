@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   validate.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/16 15:20:18 by omaly             #+#    #+#             */
-/*   Updated: 2025/10/01 13:12:26 by omaly            ###   ########.fr       */
+/*   Created: 2025/10/01 13:22:12 by omaly             #+#    #+#             */
+/*   Updated: 2025/10/01 13:23:38 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#ifndef VALIDATE_H
+# define VALIDATE_H
 
-void	print_error(int fd)
-{
-	write(fd, "Error\n", 6);
-}
+int	validate_args(int argc, char **argv);
+#endif

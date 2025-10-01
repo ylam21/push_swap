@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:26:55 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/28 19:17:35 by omaly            ###   ########.fr       */
+/*   Updated: 2025/10/01 13:01:26 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,13 @@ void	arrange_a_for_candidate(t_ps *ps, unsigned int candidate)
 	}
 }
 
-void	sort_5(t_ps *ps)
+void	sort_small(t_ps *ps)
 {
 	unsigned int	candidate;
 
 	pb(ps);
-	pb(ps);
+	if (ps->size_a == 5)
+		pb(ps);
 	sort_3(ps);
 	while (ps->stack_b)
 	{
@@ -81,7 +82,7 @@ void	sort_5(t_ps *ps)
 		arrange_a_for_candidate(ps, candidate);
 		pa(ps);
 	}
-	arrange_a_for_candidate(ps, 4);
+	arrange_a_for_candidate(ps, ps->max_a);
 }
 
 void	radix_sort(t_ps *ps)
@@ -118,8 +119,8 @@ void	push_swap(t_ps *ps)
 			return (ra(ps));
 		else if (ps->size_a == 3)
 			return (sort_3(ps));
-		else if (ps->size_a == 5)
-			return (sort_5(ps));
+		else if (ps->size_a < 6)
+			return (sort_small(ps));
 		else
 			return (radix_sort(ps));
 	}

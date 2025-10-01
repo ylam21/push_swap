@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   init.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/16 15:20:18 by omaly             #+#    #+#             */
-/*   Updated: 2025/10/01 13:12:26 by omaly            ###   ########.fr       */
+/*   Created: 2025/10/01 13:14:14 by omaly             #+#    #+#             */
+/*   Updated: 2025/10/01 13:32:21 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#ifndef INIT_H
+# define INIT_H
+# include "push_swap.h"
 
-void	print_error(int fd)
-{
-	write(fd, "Error\n", 6);
-}
+typedef struct s_ps	t_ps;
+int					init_ps(t_ps *ps, int argc, char **argv);
+unsigned int		*get_ranked_arr(int *arr, size_t size);
+t_list				*tokens_to_lst(char **tokens, unsigned int offset);
+#endif

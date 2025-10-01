@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   error.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/16 15:20:18 by omaly             #+#    #+#             */
-/*   Updated: 2025/10/01 13:12:26 by omaly            ###   ########.fr       */
+/*   Created: 2025/10/01 13:17:17 by omaly             #+#    #+#             */
+/*   Updated: 2025/10/01 13:23:46 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#ifndef ERROR_H
+# define ERROR_H
 
-void	print_error(int fd)
-{
-	write(fd, "Error\n", 6);
-}
+void	print_error(int fd);
+#endif
