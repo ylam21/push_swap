@@ -6,7 +6,7 @@
 #    By: omaly <omaly@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/20 10:34:09 by omaly             #+#    #+#              #
-#    Updated: 2025/10/07 18:56:07 by omaly            ###   ########.fr        #
+#    Updated: 2025/10/07 19:31:59 by omaly            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ SOURCE_FILES =	$(SOURCE_DIR)/push_swap.c \
 				$(SOURCE_DIR)/utils/error.c \
 				$(SOURCE_DIR)/utils/char_utils.c \
 				$(SOURCE_DIR)/utils/free.c \
+				$(SOURCE_DIR)/utils/bit.c \
 				$(SOURCE_DIR)/utils/ps_atoi.c \
 				$(SOURCE_DIR)/utils/debug.c \
 				$(SOURCE_DIR)/utils/lst_utils.c

@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 10:30:01 by omaly             #+#    #+#             */
-/*   Updated: 2025/10/07 18:35:35 by omaly            ###   ########.fr       */
+/*   Updated: 2025/10/07 19:31:51 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,22 @@ int	get_max(t_list *lst)
 		curr = curr->next;
 	}
 	return (max);
+}
+
+int	get_min(t_list *lst)
+{
+	t_list	*curr;
+	int		min;
+
+	curr = lst;
+	min = *(int *)curr->content;
+	while (curr)
+	{
+		if (*(int *)curr->content < min)
+			min = *(int *)curr->content;
+		curr = curr->next;
+	}
+	return (min);
 }
 
 int	is_descending(t_list *lst)
@@ -63,16 +79,6 @@ int	get_target_pos(t_list *lst, int target)
 		curr = curr->next;
 	}
 	return (pos);
-}
-
-unsigned int	get_num_bits(unsigned int num)
-{
-	unsigned int	num_bits;
-
-	num_bits = 0;
-	while (num >> num_bits != 0)
-		++num_bits;
-	return (num_bits);
 }
 
 void	move_to_tail_a(t_ps *ps, int target)

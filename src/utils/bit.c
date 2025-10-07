@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   bit.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/20 10:33:46 by omaly             #+#    #+#             */
-/*   Updated: 2025/10/07 19:35:46 by omaly            ###   ########.fr       */
+/*   Created: 2025/10/07 19:31:29 by omaly             #+#    #+#             */
+/*   Updated: 2025/10/07 19:31:39 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
-
-int	main(int argc, char **argv)
+unsigned int	get_num_bits(unsigned int num)
 {
-	t_ps	ps;
+	unsigned int	num_bits;
 
-	if (argc < 2)
-	{
-		return (1);
-	}
-	if (validate_args(argc, argv) != 0)
-	{
-		print_error();
-		return (2);
-	}
-	if (init_ps(&ps, argc, argv) != 0)
-	{
-		print_error();
-		return (3);
-	}
-	push_swap(&ps);
-	// print_lst(ps.lst_a);
-	free_ps(&ps);
-	return (0);
+	num_bits = 0;
+	while (num >> num_bits != 0)
+		++num_bits;
+	return (num_bits);
 }

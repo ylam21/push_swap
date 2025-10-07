@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 13:09:38 by omaly             #+#    #+#             */
-/*   Updated: 2025/10/07 18:36:11 by omaly            ###   ########.fr       */
+/*   Updated: 2025/10/07 19:30:34 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 int				is_descending(t_list *lst);
 int				get_max(t_list *lst);
+int				get_min(t_list *lst);
 int				get_target_pos(t_list *lst, int target);
 unsigned int	get_num_bits(unsigned int num);
 int				is_sign(char c);

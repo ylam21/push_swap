@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:26:55 by omaly             #+#    #+#             */
-/*   Updated: 2025/10/07 19:22:01 by omaly            ###   ########.fr       */
+/*   Updated: 2025/10/07 19:35:12 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,24 @@ void	sort_3(t_ps *ps)
 	int	head;
 	int	tail;
 	int	max;
+	int	min;
 
+	min = get_min(ps->lst_a);
 	max = get_max(ps->lst_a);
 	head = *(int *)ps->lst_a->content;
 	tail = *(int *)ft_lstlast(ps->lst_a)->content;
-	if (0 == head && max == tail)
+	if (min == head && max == tail)
 	{
 		sa(ps);
 		rra(ps);
 	}
-	else if (0 != head && max == tail)
+	else if (min != head && max == tail)
 		ra(ps);
-	else if (0 == head && max != tail)
+	else if (min == head && max != tail)
 		rra(ps);
-	else if (max == head && 0 != tail)
+	else if (max == head && min != tail)
 		sa(ps);
-	else if (max != head && 0 == tail)
+	else if (max != head && min == tail)
 	{
 		sa(ps);
 		ra(ps);
@@ -71,7 +73,7 @@ void	sort_small(t_ps *ps)
 
 	size = ft_lstsize(ps->lst_a);
 	max = get_max(ps->lst_a);
-	if (size == 3)
+	if (size == 3 && is_descending(ps->lst_a) == 0)
 		return (sort_3(ps));
 	pb(ps);
 	if (size == 5)
@@ -92,13 +94,15 @@ void	radix_sort(t_ps *ps)
 	unsigned int	i;
 	int				j;
 	int				value;
+	int				size;
 
+	size = ft_lstsize(ps->lst_a);
 	i = 0;
 	j = 0;
 	while (i < get_num_bits(get_max(ps->lst_a)))
 	{
 		j = 0;
-		while (j < ft_lstsize(ps->lst_a))
+		while (j < size)
 		{
 			value = *(int *)(ft_lstlast(ps->lst_a)->content);
 			if (((value >> i) & 1) == 0)
