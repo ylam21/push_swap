@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   debug.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/01 16:00:24 by omaly             #+#    #+#             */
-/*   Updated: 2025/10/07 18:41:14 by omaly            ###   ########.fr       */
+/*   Created: 2025/10/07 18:41:53 by omaly             #+#    #+#             */
+/*   Updated: 2025/10/07 18:54:26 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../../includes/push_swap.h"
 
-# include <limits.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-// Libft
-# include "../libft/libft.h"
-// Project modules
-# include "error.h"
-# include "init.h"
-# include "ops.h"
-# include "utils.h"
-# include "validate.h"
-# include "debug.h"
-
-typedef struct s_ps
+void	print_lst(t_list *lst)
 {
-	t_list			*lst_a;
-	t_list			*lst_b;
-}					t_ps;
-void				push_swap(t_ps *ps);
+	t_list *curr;
 
-#endif
+	if (!lst)
+	{
+		printf("NULL\n");
+		return ;
+	}
+	curr = lst;
+	while (curr)
+	{
+		printf("%d ", *(int *)curr->content);
+		curr = curr->next;
+	}
+	printf("\n");
+}
