@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:26:55 by omaly             #+#    #+#             */
-/*   Updated: 2025/10/07 18:56:51 by omaly            ###   ########.fr       */
+/*   Updated: 2025/10/07 19:08:00 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void	push_swap(t_ps *ps)
 	int	size;
 
 	size = ft_lstsize(ps->lst_a);
-	if (size > 2 && is_descending(ps->lst_a) == 0)
+	if (size > 1 && is_descending(ps->lst_a) == 0)
 	{
 		if (size == 2)
 			return (ra(ps));
