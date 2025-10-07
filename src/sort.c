@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:26:55 by omaly             #+#    #+#             */
-/*   Updated: 2025/10/01 13:01:26 by omaly            ###   ########.fr       */
+/*   Updated: 2025/10/07 10:40:21 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,11 @@ void	sort_small(t_ps *ps)
 {
 	unsigned int	candidate;
 
+	if (ps->size_a == 3)
+	{
+		sort_3(ps);
+		return ;
+	}
 	pb(ps);
 	if (ps->size_a == 5)
 		pb(ps);
@@ -117,8 +122,6 @@ void	push_swap(t_ps *ps)
 	{
 		if (ps->size_a == 2)
 			return (ra(ps));
-		else if (ps->size_a == 3)
-			return (sort_3(ps));
 		else if (ps->size_a < 6)
 			return (sort_small(ps));
 		else
