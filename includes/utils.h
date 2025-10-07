@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 13:09:38 by omaly             #+#    #+#             */
-/*   Updated: 2025/10/01 13:15:12 by omaly            ###   ########.fr       */
+/*   Updated: 2025/10/07 18:36:11 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 
 int				is_descending(t_list *lst);
 int				get_max(t_list *lst);
-void			print_stack(t_list *lst);
-int				get_target_pos(t_list *lst, unsigned int target);
+int				get_target_pos(t_list *lst, int target);
 unsigned int	get_num_bits(unsigned int num);
 int				is_sign(char c);
 int				is_whitespace(char c);
 int				ps_atoi(const char *s, int *out);
 void			free_split(char **split);
 void			free_ps(t_ps *ps);
+void			move_to_tail_a(t_ps *ps, int target);
 #endif

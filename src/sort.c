@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:26:55 by omaly             #+#    #+#             */
-/*   Updated: 2025/10/07 10:40:21 by omaly            ###   ########.fr       */
+/*   Updated: 2025/10/07 18:35:10 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	sort_3(t_ps *ps)
 	unsigned int	tail;
 	unsigned int	max;
 
-	max = get_max(ps->stack_a);
-	head = *(unsigned int *)ps->stack_a->content;
-	tail = *(unsigned int *)ft_lstlast(ps->stack_a)->content;
+	max = get_max(ps->lst_a);
+	head = *(unsigned int *)ps->lst_a->content;
+	tail = *(unsigned int *)ft_lstlast(ps->lst_a)->content;
 	if (0 == head && max == tail)
 	{
 		sa(ps);
@@ -39,78 +39,74 @@ void	sort_3(t_ps *ps)
 	}
 }
 
-void	arrange_a_for_candidate(t_ps *ps, unsigned int candidate)
+int	get_target(t_ps *ps, int max)
 {
-	unsigned int	target;
-	int				pos;
+	int		candidate;
+	t_list	*curr;
 
-	target = candidate + 1;
-	if (candidate == ps->max_a)
-		target = 0;
-	pos = get_target_pos(ps->stack_a, target);
-	if (pos < ft_lstsize(ps->stack_a) / 2)
+	if (!ps->lst_a || !ps->lst_b)
+		return (-1);
+	candidate = *(int *)ft_lstlast(ps->lst_b)->content;
+	if (candidate == max)
+		return (0);
+	while (candidate < max)
 	{
-		while (pos >= 0)
+		curr = ps->lst_a;
+		while (curr)
 		{
-			rra(ps);
-			pos--;
+			if (*(int *)curr->content == candidate + 1)
+				return (candidate + 1);
+			curr = curr->next;
 		}
-		return ;
+		candidate++;
 	}
-	else
-	{
-		while (pos < ft_lstsize(ps->stack_a) - 1)
-		{
-			ra(ps);
-			pos++;
-		}
-		return ;
-	}
+	return (-1);
 }
 
 void	sort_small(t_ps *ps)
 {
-	unsigned int	candidate;
+	int	target;
+	int	size;
+	int	max;
 
-	if (ps->size_a == 3)
-	{
-		sort_3(ps);
-		return ;
-	}
+	size = ft_lstsize(ps->lst_a);
+	max = get_max(ps->lst_a);
+	if (size == 3)
+		return (sort_3(ps));
 	pb(ps);
-	if (ps->size_a == 5)
+	if (size == 5)
 		pb(ps);
 	sort_3(ps);
-	while (ps->stack_b)
+	while (ps->lst_b)
 	{
-		candidate = *(unsigned int *)ft_lstlast(ps->stack_b)->content;
-		arrange_a_for_candidate(ps, candidate);
+		target = get_target(ps, max);
+		move_to_tail_a(ps, target);
 		pa(ps);
 	}
-	arrange_a_for_candidate(ps, ps->max_a);
+	move_to_tail_a(ps, 0);
 }
 
 void	radix_sort(t_ps *ps)
 {
 	unsigned int	i;
-	unsigned int	j;
+	int				j;
 	int				value;
 
 	i = 0;
 	j = 0;
-	while (i < get_num_bits(ps->max_a))
+	while (i < get_num_bits(get_max(ps->lst_a)))
 	{
 		j = 0;
-		while (j < ps->size_a)
+		while (j < ft_lstsize(ps->lst_a))
 		{
-			value = *(int *)(ft_lstlast(ps->stack_a)->content);
+			value = *(int *)(ft_lstlast(ps->lst_a)->content);
 			if (((value >> i) & 1) == 0)
 				pb(ps);
 			else
 				ra(ps);
 			j++;
 		}
-		while (ps->stack_b)
+		while (ps->lst_b)
 			pa(ps);
 		i++;
 	}
@@ -118,11 +114,14 @@ void	radix_sort(t_ps *ps)
 
 void	push_swap(t_ps *ps)
 {
-	if (is_descending(ps->stack_a) == 0)
+	int	size;
+
+	size = ft_lstsize(ps->lst_a);
+	if (size < 2 && is_descending(ps->lst_a) == 0)
 	{
-		if (ps->size_a == 2)
+		if (size == 2)
 			return (ra(ps));
-		else if (ps->size_a < 6)
+		else if (size < 6)
 			return (sort_small(ps));
 		else
 			return (radix_sort(ps));

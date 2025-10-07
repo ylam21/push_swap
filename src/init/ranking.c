@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 17:26:18 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/19 15:36:47 by omaly            ###   ########.fr       */
+/*   Updated: 2025/10/07 18:34:15 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ void	bubble_sort(int *arr, int size)
 	}
 }
 
-unsigned int	get_rank(int *sorted, size_t size, int find)
+unsigned int	get_rank(int *sorted, int size, int find)
 {
-	unsigned int	i;
+	int	i;
 
 	if (!sorted)
 		return (0);
@@ -52,10 +52,10 @@ unsigned int	get_rank(int *sorted, size_t size, int find)
 	return (0);
 }
 
-int	*ft_arrcpy(const int *src, size_t n)
+int	*ft_arrcpy(const int *src, int n)
 {
-	int				*cpy;
-	unsigned int	i;
+	int	*cpy;
+	int	i;
 
 	if (!src)
 		return (NULL);
@@ -71,11 +71,11 @@ int	*ft_arrcpy(const int *src, size_t n)
 	return (cpy);
 }
 
-unsigned int	*get_ranked_arr(int *arr, size_t size)
+unsigned int	*get_ranked_arr(int *arr, int size)
 {
 	int				*arr_cpy;
 	unsigned int	*res;
-	unsigned int	i;
+	int				i;
 	int				find;
 
 	if (!arr)

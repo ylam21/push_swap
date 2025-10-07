@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:00:24 by omaly             #+#    #+#             */
-/*   Updated: 2025/10/01 13:25:39 by omaly            ###   ########.fr       */
+/*   Updated: 2025/10/07 18:16:05 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,8 @@
 
 typedef struct s_ps
 {
-	t_list			*stack_a;
-	t_list			*stack_b;
-	size_t			size_a;
-	unsigned int	max_a;
+	t_list			*lst_a;
+	t_list			*lst_b;
 }					t_ps;
 void				push_swap(t_ps *ps);
 

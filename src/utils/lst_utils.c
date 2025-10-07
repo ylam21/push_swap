@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 10:30:01 by omaly             #+#    #+#             */
-/*   Updated: 2025/10/01 13:16:17 by omaly            ###   ########.fr       */
+/*   Updated: 2025/10/07 18:35:35 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	is_descending(t_list *lst)
 	return (1);
 }
 
-int	get_target_pos(t_list *lst, unsigned int target)
+int	get_target_pos(t_list *lst, int target)
 {
 	int		pos;
 	t_list	*curr;
@@ -57,7 +57,7 @@ int	get_target_pos(t_list *lst, unsigned int target)
 	curr = lst;
 	while (curr)
 	{
-		if (target == *(unsigned int *)curr->content)
+		if (target == *(int *)curr->content)
 			return (pos);
 		pos++;
 		curr = curr->next;
@@ -73,4 +73,33 @@ unsigned int	get_num_bits(unsigned int num)
 	while (num >> num_bits != 0)
 		++num_bits;
 	return (num_bits);
+}
+
+void	move_to_tail_a(t_ps *ps, int target)
+{
+	int	pos;
+
+	if (target < 0)
+		return ;
+	pos = get_target_pos(ps->lst_a, target);
+	if (pos == -1)
+		return ;
+	if (pos < ft_lstsize(ps->lst_a) / 2)
+	{
+		while (pos >= 0)
+		{
+			rra(ps);
+			pos--;
+		}
+		return ;
+	}
+	else
+	{
+		while (pos < ft_lstsize(ps->lst_a) - 1)
+		{
+			ra(ps);
+			pos++;
+		}
+		return ;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 13:14:14 by omaly             #+#    #+#             */
-/*   Updated: 2025/10/01 13:32:21 by omaly            ###   ########.fr       */
+/*   Updated: 2025/10/07 18:15:43 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@
 
 typedef struct s_ps	t_ps;
 int					init_ps(t_ps *ps, int argc, char **argv);
-unsigned int		*get_ranked_arr(int *arr, size_t size);
+unsigned int		*get_ranked_arr(int *arr, int size);
 t_list				*tokens_to_lst(char **tokens, unsigned int offset);
 #endif

@@ -6,12 +6,12 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 13:17:17 by omaly             #+#    #+#             */
-/*   Updated: 2025/10/01 13:23:46 by omaly            ###   ########.fr       */
+/*   Updated: 2025/10/07 18:13:40 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ERROR_H
 # define ERROR_H
 
-void	print_error(int fd);
+void	print_error(void);
 #endif

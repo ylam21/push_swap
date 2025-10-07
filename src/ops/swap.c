@@ -6,29 +6,29 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 12:36:45 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/17 14:55:18 by omaly            ###   ########.fr       */
+/*   Updated: 2025/10/07 18:18:12 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	swap(t_list **stack)
+void	swap(t_list **lst)
 {
 	t_list	*second_last;
 	t_list	*last;
 	t_list	*before;
 
-	if (!stack || !(*stack))
+	if (!lst || !(*lst))
 		return ;
-	second_last = *stack;
+	second_last = *lst;
 	while (second_last->next->next)
 		second_last = second_last->next;
 	last = second_last->next;
 	second_last->next = last->next;
 	last->next = second_last;
-	if (*stack != second_last)
+	if (*lst != second_last)
 	{
-		before = *stack;
+		before = *lst;
 		while (before->next != second_last)
 			before = before->next;
 		before->next = last;
@@ -37,19 +37,19 @@ void	swap(t_list **stack)
 
 void	sa(t_ps *ps)
 {
-	swap(&(ps->stack_a));
+	swap(&(ps->lst_a));
 	write(1, "sa\n", 3);
 }
 
 void	sb(t_ps *ps)
 {
-	swap(&(ps->stack_b));
+	swap(&(ps->lst_b));
 	write(1, "sb\n", 3);
 }
 
 void	ss(t_ps *ps)
 {
-	swap(&(ps->stack_a));
-	swap(&(ps->stack_b));
+	swap(&(ps->lst_a));
+	swap(&(ps->lst_b));
 	write(1, "ss\n", 3);
 }

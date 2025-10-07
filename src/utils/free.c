@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:39:35 by omaly             #+#    #+#             */
-/*   Updated: 2025/10/01 13:13:12 by omaly            ###   ########.fr       */
+/*   Updated: 2025/10/07 18:18:27 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	free_lst(t_list *lst)
 
 void	free_ps(t_ps *ps)
 {
-	free_lst(ps->stack_a);
-	free_lst(ps->stack_b);
+	free_lst(ps->lst_a);
+	free_lst(ps->lst_b);
 }
 
 void	free_split(char **split)

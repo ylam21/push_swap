@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:33:58 by omaly             #+#    #+#             */
-/*   Updated: 2025/09/17 14:55:03 by omaly            ###   ########.fr       */
+/*   Updated: 2025/10/07 18:17:47 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ t_list	*pop_last(t_list **lst)
 	return (last);
 }
 
-// Take the first element at the top of stack A
-// and put it at the top of stack B.
+// Take the first element at the top of lst A
+// and put it at the top of lst B.
 // Do nothing if A is empty.
 // The 'top' is the node where node->next == NULL
 void	push(t_list **src, t_list **dest)
@@ -58,12 +58,12 @@ void	push(t_list **src, t_list **dest)
 
 void	pa(t_ps *ps)
 {
-	push(&(ps->stack_b), &(ps->stack_a));
+	push(&(ps->lst_b), &(ps->lst_a));
 	write(1, "pa\n", 3);
 }
 
 void	pb(t_ps *ps)
 {
-	push(&(ps->stack_a), &(ps->stack_b));
+	push(&(ps->lst_a), &(ps->lst_b));
 	write(1, "pb\n", 3);
 }
