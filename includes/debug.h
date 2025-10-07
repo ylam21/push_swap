@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 18:40:28 by omaly             #+#    #+#             */
-/*   Updated: 2025/10/07 18:54:08 by omaly            ###   ########.fr       */
+/*   Updated: 2025/10/07 19:22:30 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 # define DEBUG_H
 
 # include "push_swap.h"
+
 void	print_lst(t_list *lst);
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:26:55 by omaly             #+#    #+#             */
-/*   Updated: 2025/10/07 19:08:00 by omaly            ###   ########.fr       */
+/*   Updated: 2025/10/07 19:22:01 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	sort_3(t_ps *ps)
 {
-	unsigned int	head;
-	unsigned int	tail;
-	unsigned int	max;
+	int	head;
+	int	tail;
+	int	max;
 
 	max = get_max(ps->lst_a);
-	head = *(unsigned int *)ps->lst_a->content;
-	tail = *(unsigned int *)ft_lstlast(ps->lst_a)->content;
+	head = *(int *)ps->lst_a->content;
+	tail = *(int *)ft_lstlast(ps->lst_a)->content;
 	if (0 == head && max == tail)
 	{
 		sa(ps);
@@ -76,7 +76,8 @@ void	sort_small(t_ps *ps)
 	pb(ps);
 	if (size == 5)
 		pb(ps);
-	sort_3(ps);
+	if (is_descending(ps->lst_a) == 0)
+		sort_3(ps);
 	while (ps->lst_b)
 	{
 		target = get_target(ps, max);
