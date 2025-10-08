@@ -48,14 +48,6 @@ If the input is already sorted, no instructions are printed.
 
 The following instructions must be used to sort the stack:
 
-📑 Allowed Operations
-
-The following instructions must be used to sort the stack:
-
-📑 Allowed Operations
-
-The following instructions must be used to sort the stack:
-
 **Swap**
 
 sa : swap the first 2 elements at the top of stack a
@@ -91,5 +83,3 @@ rrr : rra and rrb at the same
 Input validation must handle errors (non-integers, duplicates, overflow, underflow).
 
 Efficiency is graded: fewer instructions = higher score.
-
-Implement different strategies for small stacks (≤3, ≤5) and larger stacks (radix sort, quicksort-inspired methods, …).
