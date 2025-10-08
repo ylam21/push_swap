@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:33:46 by omaly             #+#    #+#             */
-/*   Updated: 2025/10/07 19:35:46 by omaly            ###   ########.fr       */
+/*   Updated: 2025/10/08 16:13:05 by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ int	main(int argc, char **argv)
 	t_ps	ps;
 
 	if (argc < 2)
-	{
 		return (1);
-	}
 	if (validate_args(argc, argv) != 0)
 	{
 		print_error();
@@ -31,7 +29,6 @@ int	main(int argc, char **argv)
 		return (3);
 	}
 	push_swap(&ps);
-	// print_lst(ps.lst_a);
 	free_ps(&ps);
 	return (0);
 }
