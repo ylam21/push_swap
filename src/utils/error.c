@@ -6,7 +6,7 @@
 /*   By: omaly <omaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 15:20:18 by omaly             #+#    #+#             */
-/*   Updated: 2025/10/07 18:13:30 by omaly            ###   ########.fr       */
+/*   Updated: 2025/10/ by omaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	print_error(void)
 {
-	ft_putstr_fd("Error", 2);
+	ft_putstr_fd("Error\n", STDERR_FILENO);
 }
